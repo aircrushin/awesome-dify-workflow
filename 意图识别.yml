@@ -1,0 +1,595 @@
+app:
+  description: 根据用户意图选择性回复
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: 意图识别
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.2
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+    opening_statement: ''
+    retriever_resource:
+      enabled: false
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        sourceType: llm
+        targetType: question-classifier
+      id: 1718246807593-1718246909580
+      selected: false
+      source: '1718246807593'
+      sourceHandle: source
+      target: '1718246909580'
+      targetHandle: target
+      type: custom
+    - data:
+        sourceType: question-classifier
+        targetType: llm
+      id: 1718246909580-1718246916748
+      selected: false
+      source: '1718246909580'
+      sourceHandle: '1715846546749'
+      target: '1718246916748'
+      targetHandle: target
+      type: custom
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: variable-aggregator
+      id: 1718246916748-source-1718852940536-target
+      source: '1718246916748'
+      sourceHandle: source
+      target: '1718852940536'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: variable-aggregator
+      id: 1718246959048-source-1718852940536-target
+      source: '1718246959048'
+      sourceHandle: source
+      target: '1718852940536'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: variable-aggregator
+        targetType: llm
+      id: 1718852940536-source-1718853322658-target
+      source: '1718852940536'
+      sourceHandle: source
+      target: '1718853322658'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: llm
+      id: 1714456604511-source-1718246807593-target
+      source: '1714456604511'
+      sourceHandle: source
+      target: '1718246807593'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: end
+      id: 1718853322658-source-1719901804452-target
+      source: '1718853322658'
+      sourceHandle: source
+      target: '1719901804452'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: question-classifier
+        targetType: knowledge-retrieval
+      id: 1718246909580-1715846565625-1721623802451-target
+      source: '1718246909580'
+      sourceHandle: '1715846565625'
+      target: '1721623802451'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: knowledge-retrieval
+        targetType: llm
+      id: 1721623802451-source-1718246959048-target
+      source: '1721623802451'
+      sourceHandle: source
+      target: '1718246959048'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - label: query
+          max_length: 60000
+          options: []
+          required: true
+          type: paragraph
+          variable: query
+      height: 90
+      id: '1714456604511'
+      position:
+        x: 30
+        y: 292
+      positionAbsolute:
+        x: 30
+        y: 292
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        memory:
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: true
+            size: 3
+        model:
+          completion_params:
+            temperature: 0.7
+            top_p: 0.2
+          mode: chat
+          name: glm-4-flash
+          provider: zhipuai
+        prompt_template:
+        - id: cf4669d8-da9b-43e6-a726-989dd4dacdc9
+          role: system
+          text: '现在我要做一个聊天信息整理的工作，请参照以下Prompt制作。
+
+            '
+        - id: 4cd9313f-e470-4abd-96ba-0f396be97a9d
+          role: user
+          text: '## 角色
+
+            你是一个App的客服，App已经上架了应用商店，它还有一个配套的运动腕带，可以实时监测心率，你负责提供客服服务。
+
+
+            ## 输入：
+
+            - 输入内容为用户的聊天记录
+
+            - 可能含有多段文本和多张图片
+
+            - 这些内容与App、运动、饮食、答题或日常生活相关。
+
+
+            ## 策略：
+
+            分四步进行信息整理，并打印每步的结果，不要遗漏：
+
+            1. 如果有图片，识别图片的内容，进行分类，例如：饮食、APP截图、运动腕带等
+
+            2. 结合文本的内容，对图片进行详细的描述。
+
+            3. 根据对文本的理解和图片的描述，尝试对聊天内容进行补全，指出用户的意图。例如：打卡分享、健康咨询、在线交友、咨询饮食建议、运动腕带问题咨询等。
+
+            4. 根据用户的意图，给出回复策略。例如：夸奖用户、健康指导、App或腕带使用帮助
+
+            - 单纯的图片分享，大概率是需要夸奖
+
+            - 有健康相关问题，大概率是需要专业的健康指导和建议
+
+            - App和腕带问题，大概率需要检索知识库，提供使用帮助
+
+            - 文本信息中的 image_type 仅供参考，不要参与分析
+
+            ## 格式
+
+            返回格式如下，"{xxx}"表示占位符：
+
+            ### 图片分类
+
+            {图片分类}
+
+            ***
+
+            ### 图片描述
+
+            {图片描述}
+
+            ***
+
+            ### 用户意图
+
+            {用户意图}
+
+            ***
+
+            ### 回复策略
+
+            {回复策略}'
+        - id: 04e30b4d-8f79-4837-b470-bd46ae52a1bb
+          role: assistant
+          text: 好的，我将按照你的要求，进行数据整理
+        - id: 7a805718-5f13-4bd4-9995-b466b56f4735
+          role: user
+          text: '{{#1714456604511.query#}}'
+        selected: false
+        title: 意图向量机
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: '1718246807593'
+      position:
+        x: 334.80422382079394
+        y: 292
+      positionAbsolute:
+        x: 334.80422382079394
+        y: 292
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        classes:
+        - id: '1715846546749'
+          name: 健康咨询
+        - id: '1715846565625'
+          name: 使用帮助
+        desc: ''
+        instruction: '分类依据
+
+          - 与App，运动腕带相关，都属于 **使用帮助** 这个类别
+
+          - 疾病、饮食、睡眠等其他分类，都属于 **健康咨询** 这个类别'
+        instructions: ''
+        model:
+          completion_params:
+            temperature: 0.1
+            top_p: 1
+          mode: chat
+          name: deepseek-chat
+          provider: deepseek
+        query_variable_selector:
+        - '1718246807593'
+        - text
+        selected: false
+        title: 问题分类器
+        topics: []
+        type: question-classifier
+      height: 184
+      id: '1718246909580'
+      position:
+        x: 638
+        y: 292
+      positionAbsolute:
+        x: 638
+        y: 292
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1718246807593'
+          - text
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.2
+          mode: chat
+          name: deepseek-chat
+          provider: deepseek
+        prompt_template:
+        - id: 8dfbe783-52f1-4210-9899-e952da5ed717
+          role: system
+          text: '### 角色定位
+
+
+            作为一位经验丰富的社群健康管家，您负责在微信群内提供专业的健康反馈和建议。你可以根据用户的意图，和回复策略，进行回复。
+
+            ### 专业技能
+
+
+            *   慢病管理与营养学：您熟悉《中国高血压健康管理规范》、《中国老年糖尿病诊疗指南》和《中国膳食营养指南》，拥有丰富的实践经验。
+
+            *   药物知识：您拥有20年的药师经验，对药品说明书和使用细节有着深刻的理解。
+
+            *   健康咨询：您能够根据用户的具体问题，提供全面的健康建议、生活方式指导和心理支持。
+
+
+            ### 操作准则
+
+            *   信息参考性：在提供医疗相关信息时，要明确告知用户所有建议仅供参考，具体医疗决策和用药问题应遵循医生的指导。
+
+            *   服务范围：如果用户的问题超出健康管理范畴，您应说明作为健康管理师，您无法提供超出健康咨询范围的建议。
+
+            *   身份保密：在交流中，您应以“健康管理师”的身份出现，避免透露您是AI机器人的事实。
+
+            *   格式要求：在文本中不使用星号( ** )来强调内容。
+
+            *   文字数量：输出文字不要超过200字。
+
+
+            ### 交流风格
+
+            *   表情符号：在回复中适当加入表情符号，以增加交流的亲切感和表达的丰富性。
+
+
+            ### 策略
+
+            - 根据回复策略，结合用户的意图，进行内容输出
+
+            - 注意，你面向的用户是年龄较大的患者，尽可能简洁精炼的回复用户，不要超过300字
+
+            - 直接输出回复内容，不要有其它分析相关的信息'
+        - id: 0b83f901-f97c-428f-8954-c4b772509bb2
+          role: user
+          text: '{{#context#}}'
+        selected: false
+        title: 文本健康咨询回复
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: '1718246916748'
+      position:
+        x: 1246
+        y: 292
+      positionAbsolute:
+        x: 1246
+        y: 292
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1721623802451'
+          - result
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.2
+          mode: chat
+          name: deepseek-chat
+          provider: deepseek
+        prompt_template:
+        - id: 3a83623c-0e25-47c1-be3e-14946302c2c3
+          role: system
+          text: '你是一个app的官方客服人员，请根据知识库，和用户问题，进行回复，尽可能还原检索内容，且回答流畅。
+
+
+            ### 交流风格
+
+            *   表情符号：在回复中适当加入表情符号，以增加交流的亲切感和表达的丰富性。
+
+            *   文字数量：输出文字不要超过300字。
+
+
+            ## 这是知识库
+
+            {{#context#}}
+
+            '
+        - id: 8483aec2-6a78-4154-a079-a33de3f8708e
+          role: user
+          text: '{{#1718246807593.text#}}'
+        selected: false
+        title: 文本使用帮助回复
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: '1718246959048'
+      position:
+        x: 1246
+        y: 430
+      positionAbsolute:
+        x: 1246
+        y: 430
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        output_type: string
+        selected: false
+        title: 变量聚合器
+        type: variable-aggregator
+        variables:
+        - - '1718246916748'
+          - text
+        - - '1718246959048'
+          - text
+      height: 139
+      id: '1718852940536'
+      position:
+        x: 1550
+        y: 292
+      positionAbsolute:
+        x: 1550
+        y: 292
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1718852940536'
+          - output
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-chat
+          provider: deepseek
+        prompt_template:
+        - id: 42cee7e9-9bfa-46dc-b4e2-d9db7fe23380
+          role: system
+          text: '## 角色
+
+            你是一个App的客服，App已经上架了应用商店，它还有一个配套的运动腕带，可以实时监测心率，你负责提供客服服务。请根据用户聊天内容，参考回复内容，回复用户。
+
+
+            ## 输入：
+
+            - 输入内容为用户的聊天记录
+
+            - 可能含有多段文本和多张图片
+
+            - 这些内容与钥健康App、运动、饮食、答题或日常生活相关。
+
+
+            ## 风格
+
+            1、简单回复收到打卡
+
+            2、简单点评。
+
+            3、正面鼓励用户的分享行为。
+
+            4、 语气亲切热情。
+
+            5、不要提问题。
+
+            6、可最多使用一个表情图提高趣味性。
+
+            7、字数不超过30。
+
+            8、全部使用中文。
+
+            ## 回复参考内容
+
+            {{#1718852940536.output#}}'
+        - id: 82549489-7d89-4844-bd02-e8409acab391
+          role: user
+          text: '{{#context#}}'
+        selected: false
+        title: 风格化回复内容
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: '1718853322658'
+      position:
+        x: 1854
+        y: 292
+      positionAbsolute:
+        x: 1854
+        y: 292
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1718853322658'
+          - text
+          variable: output
+        selected: false
+        title: 结束
+        type: end
+      height: 90
+      id: '1719901804452'
+      position:
+        x: 2158
+        y: 292
+      positionAbsolute:
+        x: 2158
+        y: 292
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        dataset_ids:
+        - be517915-1dd5-4d09-a67d-4d5e4e4b21a8
+        desc: ''
+        query_variable_selector:
+        - '1714456604511'
+        - query
+        retrieval_mode: single
+        selected: false
+        single_retrieval_config:
+          model:
+            completion_params: {}
+            mode: chat
+            name: Doubao-Pro-32k
+            provider: volcengine_maas
+        title: 知识检索
+        type: knowledge-retrieval
+      height: 54
+      id: '1721623802451'
+      position:
+        x: 942
+        y: 430
+      positionAbsolute:
+        x: 942
+        y: 430
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: 364.77774108735616
+      y: 71.8773862410043
+      zoom: 0.2739699519833132
