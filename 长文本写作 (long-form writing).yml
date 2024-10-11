@@ -1,0 +1,337 @@
+app:
+  description: ''
+  icon: "\U0001F916"
+  icon_background: '#FFEAD5'
+  mode: advanced-chat
+  name: "\u957F\u6587\u672C\u5199\u4F5C"
+kind: app
+version: 0.1.0
+workflow:
+  features:
+    file_upload:
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: llm
+      id: 1723797623551-source-1723797712476-target
+      source: '1723797623551'
+      sourceHandle: source
+      target: '1723797712476'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: parameter-extractor
+      id: 1723797712476-source-1723797766909-target
+      source: '1723797712476'
+      sourceHandle: source
+      target: '1723797766909'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: parameter-extractor
+        targetType: iteration
+      id: 1723797766909-source-1723797863853-target
+      source: '1723797766909'
+      sourceHandle: source
+      target: '1723797863853'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: true
+        iteration_id: '1723797863853'
+        sourceType: llm
+        targetType: answer
+      id: 1723797867185-source-1723798110060-target
+      source: '1723797867185'
+      sourceHandle: source
+      target: '1723798110060'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: "\u5F00\u59CB"
+        type: start
+        variables:
+        - label: title
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: title
+      height: 90
+      id: '1723797623551'
+      position:
+        x: 80
+        y: 282
+      positionAbsolute:
+        x: 80
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1723797623551'
+          - title
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Doubao-lite-128k
+          provider: volcengine_maas
+        prompt_template:
+        - id: 80ad0e48-bd64-46a6-a3ab-f69dd4caf484
+          role: system
+          text: "# \u89D2\u8272\n\n\u4F60\u662F\u4E00\u4E2A\u4E13\u4E1A\u7684\u8BAE\
+            \u8BBA\u6587\u5199\u4F5C\u9AD8\u624B\uFF0C\u80FD\u591F\u6839\u636E\u7528\
+            \u6237\u7ED9\u5B9A\u7684\u5199\u4F5C\u8303\u56F4\uFF0C\u8FC5\u901F\u751F\
+            \u6210\u6E05\u6670\u3001\u6709\u6761\u7406\u7684\u8BAE\u8BBA\u6587\u5927\
+            \u7EB2\uFF0C\u5E76\u4EE5\u6807\u51C6\u7684 JSON \u683C\u5F0F\u8FDB\u884C\
+            \u8F93\u51FA\u3002\n## \u6280\u80FD\n### \u6280\u80FD 1: \u7406\u89E3\u5199\
+            \u4F5C\u8303\u56F4\n1. \u4ED4\u7EC6\u5206\u6790\u7528\u6237\u8F93\u5165\
+            \u7684\u5199\u4F5C\u8303\u56F4\uFF0C\u660E\u786E\u6838\u5FC3\u4E3B\u9898\
+            \u548C\u5173\u952E\u8981\u70B9\u3002\n2. \u5BF9\u4E8E\u4E0D\u660E\u786E\
+            \u6216\u6A21\u7CCA\u7684\u5199\u4F5C\u8303\u56F4\uFF0C\u4E0E\u7528\u6237\
+            \u8FDB\u4E00\u6B65\u6C9F\u901A\u4EE5\u83B7\u53D6\u66F4\u6E05\u6670\u7684\
+            \u9700\u6C42\u3002\n### \u6280\u80FD 2: \u6784\u5EFA\u5927\u7EB2\n1. \u56F4\
+            \u7ED5\u5199\u4F5C\u8303\u56F4\uFF0C\u786E\u5B9A\u5408\u9002\u7684\u8BBA\
+            \u70B9\u548C\u8BBA\u636E\u3002\n2. \u8BBE\u8BA1\u5408\u7406\u7684\u6587\
+            \u7AE0\u7ED3\u6784\uFF0C\u5305\u62EC\u5F15\u8A00\u3001\u6B63\u6587\u6BB5\
+            \u843D\u548C\u7ED3\u8BBA\u3002\n3. \u6309\u7167\u4EE5\u4E0B JSON \u683C\
+            \u5F0F\u8F93\u51FA\u5927\u7EB2\uFF1A\n{\n  \"body_paragraphs\": [\n  {\n\
+            \      \"paragraph_title\": \"<\u5F15\u8A00>\",\n    },\n    {\n     \
+            \ \"paragraph_title\": \"<\u6B63\u6587\u6BB5\u843D 1 \u6807\u9898>\",\n\
+            \    },\n    {\n      \"paragraph_title\": \"<\u6B63\u6587\u6BB5\u843D\
+            \ 2 \u6807\u9898>\",\n    },\n  {\n      \"paragraph_title\": \"<\u7ED3\
+            \u8BBA>\",\n    }\n  ],\n}\n## \u9650\u5236\n- \u4EC5\u56F4\u7ED5\u7528\
+            \u6237\u7ED9\u5B9A\u7684\u5199\u4F5C\u8303\u56F4\u8FDB\u884C\u5927\u7EB2\
+            \u521B\u4F5C\uFF0C\u4E0D\u504F\u79BB\u4E3B\u9898\u3002\n- \u4E25\u683C\
+            \u6309\u7167\u7ED9\u5B9A\u7684 JSON \u683C\u5F0F\u8F93\u51FA\u5927\u7EB2\
+            \uFF0C\u786E\u4FDD\u683C\u5F0F\u6B63\u786E\u3001\u5185\u5BB9\u5B8C\u6574\
+            \u3002\n- \u6240\u751F\u6210\u7684\u5927\u7EB2\u5185\u5BB9\u5E94\u5177\
+            \u6709\u903B\u8F91\u8FDE\u8D2F\u6027\u548C\u8BF4\u670D\u529B\u3002"
+        - id: 2ad673f7-0e7f-405e-b59d-c9dda82ae9d6
+          role: user
+          text: '## title
+
+            {{#1723797623551.title#}}'
+        selected: false
+        title: LLM
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: '1723797712476'
+      position:
+        x: 80
+        y: 387.68024865972717
+      positionAbsolute:
+        x: 80
+        y: 387.68024865972717
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        instruction: "Example\uFF1A{\n  \"body_paragraphs\": [\n  {\n      \"paragraph_title\"\
+          : \"<\u5F15\u8A00>\",\n    },\n    {\n      \"paragraph_title\": \"<\u6B63\
+          \u6587\u6BB5\u843D 1 \u6807\u9898>\",\n    },\n    {\n      \"paragraph_title\"\
+          : \"<\u6B63\u6587\u6BB5\u843D 2 \u6807\u9898>\",\n    },\n  {\n      \"\
+          paragraph_title\": \"<\u7ED3\u8BBA>\",\n    }\n  ],\n}"
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Doubao-lite-128k
+          provider: volcengine_maas
+        parameters:
+        - description: "\u6BB5\u843D\u6807\u9898"
+          name: paragraphs
+          required: true
+          type: array[object]
+        query:
+        - '1723797712476'
+        - text
+        reasoning_mode: prompt
+        selected: false
+        title: "\u53C2\u6570\u63D0\u53D6\u5668"
+        type: parameter-extractor
+        variables: []
+      height: 98
+      id: '1723797766909'
+      position:
+        x: 339.09309679089546
+        y: 387.68024865972717
+      positionAbsolute:
+        x: 339.09309679089546
+        y: 387.68024865972717
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        height: 202
+        iterator_selector:
+        - '1723797766909'
+        - paragraphs
+        output_selector:
+        - '1723797867185'
+        - text
+        output_type: array[string]
+        selected: false
+        startNodeType: llm
+        start_node_id: '1723797867185'
+        title: "\u8FED\u4EE3"
+        type: iteration
+        width: 679
+      height: 202
+      id: '1723797863853'
+      position:
+        x: 604.6701322830082
+        y: 387.68024865972717
+      positionAbsolute:
+        x: 604.6701322830082
+        y: 387.68024865972717
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 679
+      zIndex: 1
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        isInIteration: true
+        isIterationStart: true
+        iteration_id: '1723797863853'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Doubao-lite-128k
+          provider: volcengine_maas
+        prompt_template:
+        - id: c9e7c46a-2f99-4021-b79b-717ba94d7821
+          role: system
+          text: "# \u89D2\u8272\n\u4F60\u662F\u4E00\u4F4D\u8D44\u6DF1\u7684\u8BAE\u8BBA\
+            \u6587\u4F5C\u5BB6\uFF0C\u64C5\u957F\u5C06\u7ED9\u5B9A\u7684\u5927\u7EB2\
+            \u6216\u6BB5\u843D\u8FDB\u884C\u4E30\u5BCC\u548C\u62D3\u5C55\uFF0C\u5F62\
+            \u6210\u5185\u5BB9\u8BE6\u5B9E\u3001\u903B\u8F91\u4E25\u5BC6\u7684\u957F\
+            \u7BC7\u6587\u7AE0\u3002\n\n## \u6280\u80FD\n### \u6280\u80FD 1: \u6BB5\
+            \u843D\u6269\u5C55\n1. \u4ED4\u7EC6\u5206\u6790\u7ED9\u5B9A\u7684\u6BB5\
+            \u843D\uFF0C\u660E\u786E\u5176\u6838\u5FC3\u89C2\u70B9\u548C\u903B\u8F91\
+            \u7ED3\u6784\u3002\n2. \u56F4\u7ED5\u6838\u5FC3\u89C2\u70B9\uFF0C\u8FD0\
+            \u7528\u4E30\u5BCC\u7684\u8BBA\u636E\u3001\u4E8B\u4F8B\u548C\u8BBA\u8BC1\
+            \u65B9\u6CD5\u8FDB\u884C\u6269\u5C55\u3002\n3. \u4FDD\u6301\u8BED\u8A00\
+            \u51C6\u786E\u3001\u6D41\u7545\uFF0C\u98CE\u683C\u7B26\u5408\u8BAE\u8BBA\
+            \u6587\u7684\u8981\u6C42\u3002\n4. \u6CE8\u610F\u6BB5\u843D\u4E4B\u95F4\
+            \u7684\u8FC7\u6E21\u548C\u8854\u63A5\uFF0C\u4F7F\u6587\u7AE0\u6574\u4F53\
+            \u8FDE\u8D2F\u3002\n\n## \u9650\u5236\n- \u53EA\u56F4\u7ED5\u8BAE\u8BBA\
+            \u6587\u7684\u5199\u4F5C\u5C55\u5F00\u5DE5\u4F5C\uFF0C\u4E0D\u6D89\u53CA\
+            \u5176\u4ED6\u6587\u4F53\u3002\n- \u4E25\u683C\u6309\u7167\u8BAE\u8BBA\
+            \u6587\u7684\u683C\u5F0F\u548C\u8981\u6C42\u8FDB\u884C\u5199\u4F5C\uFF0C\
+            \u5305\u62EC\u63D0\u51FA\u8BBA\u70B9\u3001\u8BBA\u8BC1\u8FC7\u7A0B\u548C\
+            \u5F97\u51FA\u7ED3\u8BBA\u3002\n- \u6240\u4F7F\u7528\u7684\u8BBA\u636E\
+            \u548C\u4E8B\u4F8B\u5FC5\u987B\u771F\u5B9E\u53EF\u9760\uFF0C\u5177\u6709\
+            \u8BF4\u670D\u529B\u3002\n- \u6CE8\u610F\u8BED\u8A00\u89C4\u8303\uFF0C\
+            \u907F\u514D\u4F7F\u7528\u8FC7\u4E8E\u968F\u610F\u6216\u53E3\u8BED\u5316\
+            \u7684\u8868\u8FBE\u3002"
+        - id: c372aef9-f917-4ecc-aaba-8ca0d457863a
+          role: user
+          text: '## Paragraph  you need to extend
+
+            {{#1723797863853.item#}}'
+        selected: false
+        title: LLM 2
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      extent: parent
+      height: 98
+      id: '1723797867185'
+      parentId: '1723797863853'
+      position:
+        x: 117
+        y: 85
+      positionAbsolute:
+        x: 721.6701322830082
+        y: 472.68024865972717
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1001
+    - data:
+        answer: '{{#1723797867185.text#}}'
+        desc: ''
+        isInIteration: true
+        iteration_id: '1723797863853'
+        selected: false
+        title: "\u76F4\u63A5\u56DE\u590D"
+        type: answer
+        variables: []
+      extent: parent
+      height: 107
+      id: '1723798110060'
+      parentId: '1723797863853'
+      position:
+        x: 420
+        y: 85
+      positionAbsolute:
+        x: 1024.6701322830081
+        y: 472.68024865972717
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    viewport:
+      x: -29.064114336572402
+      y: -248.6621523567294
+      zoom: 1.669699664835108
