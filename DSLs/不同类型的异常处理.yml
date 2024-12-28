@@ -1,0 +1,402 @@
+app:
+  description: ''
+  icon: ladybug
+  icon_background: '#E0F2FE'
+  mode: advanced-chat
+  name: 不同类型的异常处理
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.3
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: Here are the simulation status tests for different situations.
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions:
+    - https://httpstat.us/404
+    - https://httpstat.us/429
+    - https://httpstat.us/500
+    - https://httpstat.us/403
+    - https://httpstat.us/200
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: http-request
+      id: 1733909511549-source-1733909519940-target
+      source: '1733909511549'
+      sourceHandle: source
+      target: '1733909519940'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: http-request
+        targetType: if-else
+      id: 1733909519940-fail-branch-1733910151008-target
+      source: '1733909519940'
+      sourceHandle: fail-branch
+      target: '1733910151008'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: answer
+      id: 1733910151008-true-answer-target
+      source: '1733910151008'
+      sourceHandle: 'true'
+      target: answer
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: http-request
+        targetType: answer
+      id: 1733909519940-source-1733910320961-target
+      source: '1733909519940'
+      sourceHandle: source
+      target: '1733910320961'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: answer
+      id: 1733910151008-dbb260c8-3f59-46e9-b4ed-b0b5a1a9f49d-17339104053230-target
+      source: '1733910151008'
+      sourceHandle: dbb260c8-3f59-46e9-b4ed-b0b5a1a9f49d
+      target: '17339104053230'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: answer
+      id: 1733910151008-41c21d2a-3910-4a67-98ba-4a610fa4824d-17339104116060-target
+      source: '1733910151008'
+      sourceHandle: 41c21d2a-3910-4a67-98ba-4a610fa4824d
+      target: '17339104116060'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: answer
+      id: 1733910151008-1625a33e-7176-4cc8-a87f-8a436d156536-17339104173770-target
+      source: '1733910151008'
+      sourceHandle: 1625a33e-7176-4cc8-a87f-8a436d156536
+      target: '17339104173770'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: Start
+        type: start
+        variables: []
+      height: 54
+      id: '1733909511549'
+      position:
+        x: 80
+        y: 282
+      positionAbsolute:
+        x: 80
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: 'My error type is 404.
+
+          {{#1733909519940.error_message#}}
+
+          {{#1733909519940.error_type#}}'
+        desc: ''
+        selected: false
+        title: Answer
+        type: answer
+        variables: []
+      height: 138
+      id: answer
+      position:
+        x: 1019
+        y: 277
+      positionAbsolute:
+        x: 1019
+        y: 277
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data: []
+          type: none
+        desc: ''
+        error_strategy: fail-branch
+        headers: ''
+        method: get
+        params: ''
+        selected: false
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: HTTP Request
+        type: http-request
+        url: '{{#sys.query#}}'
+        variables: []
+      height: 97
+      id: '1733909519940'
+      position:
+        x: 384
+        y: 282
+      positionAbsolute:
+        x: 384
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: e3567322-83c8-4448-aeab-7f901f496732
+            value: '404'
+            varType: string
+            variable_selector:
+            - '1733909519940'
+            - error_message
+          id: 'true'
+          logical_operator: and
+        - case_id: dbb260c8-3f59-46e9-b4ed-b0b5a1a9f49d
+          conditions:
+          - comparison_operator: contains
+            id: 99eacefb-3786-4303-bb0f-5162989a4a55
+            value: '429'
+            varType: string
+            variable_selector:
+            - '1733909519940'
+            - error_message
+          logical_operator: and
+        - case_id: 41c21d2a-3910-4a67-98ba-4a610fa4824d
+          conditions:
+          - comparison_operator: contains
+            id: c9bb6189-ec48-4d34-a6bf-e55917e8fb17
+            value: '500'
+            varType: string
+            variable_selector:
+            - '1733909519940'
+            - error_message
+          logical_operator: and
+        - case_id: 1625a33e-7176-4cc8-a87f-8a436d156536
+          conditions:
+          - comparison_operator: contains
+            id: af919efd-1aae-4288-978b-572937fa15f2
+            value: '403'
+            varType: string
+            variable_selector:
+            - '1733909519940'
+            - error_message
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: IF/ELSE
+        type: if-else
+      height: 270
+      id: '1733910151008'
+      position:
+        x: 719
+        y: 277
+      positionAbsolute:
+        x: 719
+        y: 277
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: success
+        desc: ''
+        selected: false
+        title: Answer 2
+        type: answer
+        variables: []
+      height: 100
+      id: '1733910320961'
+      position:
+        x: 704.2144302513008
+        y: 132.5758610398908
+      positionAbsolute:
+        x: 704.2144302513008
+        y: 132.5758610398908
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: 'My error type is 429.
+
+          {{#1733909519940.error_message#}}
+
+          {{#1733909519940.error_type#}}'
+        desc: ''
+        selected: false
+        title: Answer (1)
+        type: answer
+        variables: []
+      height: 138
+      id: '17339104053230'
+      position:
+        x: 1076.7091466204163
+        y: 446.1434031715808
+      positionAbsolute:
+        x: 1076.7091466204163
+        y: 446.1434031715808
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: 'My error type is 500.
+
+          {{#1733909519940.error_message#}}
+
+          {{#1733909519940.error_type#}}'
+        desc: ''
+        selected: false
+        title: Answer (2)
+        type: answer
+        variables: []
+      height: 138
+      id: '17339104116060'
+      position:
+        x: 1061.9235768717172
+        y: 585.1277588093535
+      positionAbsolute:
+        x: 1061.9235768717172
+        y: 585.1277588093535
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: 'My error type is 403.
+
+          {{#1733909519940.error_message#}}
+
+          {{#1733909519940.error_type#}}'
+        desc: ''
+        selected: false
+        title: Answer (3)
+        type: answer
+        variables: []
+      height: 138
+      id: '17339104173770'
+      position:
+        x: 1029.066755207941
+        y: 767.811687259948
+      positionAbsolute:
+        x: 1029.066755207941
+        y: 767.811687259948
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        author: Yevanchen
+        desc: ''
+        height: 182
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"这个用例模拟了不同情况的下的异常处理,对于运行时异常可能有不同的可预见的错误类型，failbranch
+          允许开发者提前配置对应的错误处理工作流来捕获运行时的异常这里使用","type":"text","version":1},{"type":"linebreak","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"403
+          Forbidden: https://httpstat.us/403 ","type":"text","version":1},{"type":"linebreak","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"404
+          Not Found: https://httpstat.us/404 ","type":"text","version":1},{"type":"linebreak","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"429
+          Too Many Requests: https://httpstat.us/429 ","type":"text","version":1},{"type":"linebreak","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"500
+          Server Error: https://httpstat.us/500","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 280
+      height: 182
+      id: '1733910597234'
+      position:
+        x: 80
+        y: 366.08174366124496
+      positionAbsolute:
+        x: 80
+        y: 366.08174366124496
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 280
+    viewport:
+      x: -51.891477828372956
+      y: -51.15384739295632
+      zoom: 0.9994613680079595
