@@ -19,6 +19,11 @@
 提前配置对应的错误处理工作流来捕获运行时的异常使用
 ![异常处理流程](/imgs/error-handling.png)
 
+### simple-kimi
+
+仿 KIMI 风格的工作流，多模态联网搜索和文件读取
+![simple-kimi流程](/imgs/simple-kimi.png)
+
 ## 贡献
 
 欢迎提交高质量的工作流，提交方式：

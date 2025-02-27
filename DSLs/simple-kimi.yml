@@ -1,0 +1,1801 @@
+app:
+  description: simple-kimi
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: advanced-chat
+  name: simple-kimi
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/google:0.0.8@3efcf55ffeef9d0f77715e0afb23534952ae0cb385c051d0637e86d71199d1a6
+kind: app
+version: 0.1.5
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      - document
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: true
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 5
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 1
+    opening_statement: ''
+    retriever_resource:
+      enabled: false
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: answer
+      id: llm-source-answer-target
+      selected: false
+      source: llm
+      sourceHandle: source
+      target: answer
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: tool
+      id: 1727437551868-source-1727437724068-target
+      source: '1727437551868'
+      sourceHandle: source
+      target: '1727437724068'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: code
+      id: 1727437724068-source-1727437739002-target
+      source: '1727437724068'
+      sourceHandle: source
+      target: '1727437739002'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: template-transform
+      id: 1727437739002-source-1727438089651-target
+      source: '1727437739002'
+      sourceHandle: source
+      target: '1727438089651'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: tool
+      id: 1727438265117-source-1727438331868-target
+      source: '1727438265117'
+      sourceHandle: source
+      target: '1727438331868'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: code
+      id: 1727438331868-source-1727438349664-target
+      source: '1727438331868'
+      sourceHandle: source
+      target: '1727438349664'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: template-transform
+      id: 1727438349664-source-1727438463965-target
+      source: '1727438349664'
+      sourceHandle: source
+      target: '1727438463965'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: answer
+      id: 1727438962981-source-1727439130548-target
+      source: '1727438962981'
+      sourceHandle: source
+      target: '1727439130548'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: tool
+      id: 17274404793180-source-17274405419030-target
+      source: '17274404793180'
+      sourceHandle: source
+      target: '17274405419030'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: code
+      id: 17274405419030-source-17274405777680-target
+      source: '17274405419030'
+      sourceHandle: source
+      target: '17274405777680'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: template-transform
+      id: 17274405777680-source-17274406200850-target
+      source: '17274405777680'
+      sourceHandle: source
+      target: '17274406200850'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: tool
+      id: 17274407417220-source-17274407666060-target
+      source: '17274407417220'
+      sourceHandle: source
+      target: '17274407666060'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: code
+      id: 17274407666060-source-17274408191900-target
+      source: '17274407666060'
+      sourceHandle: source
+      target: '17274408191900'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: template-transform
+      id: 17274408191900-source-17274408457890-target
+      source: '17274408191900'
+      sourceHandle: source
+      target: '17274408457890'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: document-extractor
+        targetType: template-transform
+      id: 1729777092216-source-1729777162616-target
+      source: '1729777092216'
+      sourceHandle: source
+      target: '1729777162616'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: llm
+      id: 1729777162616-source-llm-target
+      selected: false
+      source: '1729777162616'
+      sourceHandle: source
+      target: llm
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: list-operator
+        targetType: document-extractor
+      id: 1729777763543-source-1729777092216-target
+      source: '1729777763543'
+      sourceHandle: source
+      target: '1729777092216'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: answer
+      id: 1727357893396-true-1729777900959-target
+      source: '1727357893396'
+      sourceHandle: 'true'
+      target: '1729777900959'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: answer
+      id: 1729778442989-source-1729778610477-target
+      source: '1729778442989'
+      sourceHandle: source
+      target: '1729778610477'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: list-operator
+        targetType: llm
+      id: 1729778350970-source-1729778654959-target
+      source: '1729778350970'
+      sourceHandle: source
+      target: '1729778654959'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: answer
+      id: 1729778654959-source-1729778683728-target
+      source: '1729778654959'
+      sourceHandle: source
+      target: '1729778683728'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: if-else
+      id: 1727357893396-a924b44a-824a-4912-924e-268e87240447-1729781189640-target
+      source: '1727357893396'
+      sourceHandle: a924b44a-824a-4912-924e-268e87240447
+      target: '1729781189640'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: list-operator
+      id: 1729781189640-true-1729778350970-target
+      source: '1729781189640'
+      sourceHandle: 'true'
+      target: '1729778350970'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: list-operator
+      id: 1729781189640-ddf6ba30-c72f-4f06-b783-af77419acf30-1729777695485-target
+      source: '1729781189640'
+      sourceHandle: ddf6ba30-c72f-4f06-b783-af77419acf30
+      target: '1729777695485'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: list-operator
+      id: 1729781189640-5ff411e5-2162-41de-80de-b51902a2380f-1729777763543-target
+      source: '1729781189640'
+      sourceHandle: 5ff411e5-2162-41de-80de-b51902a2380f
+      target: '1729777763543'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: list-operator
+        targetType: llm
+      id: 1729777695485-source-1729778442989-target
+      source: '1729777695485'
+      sourceHandle: source
+      target: '1729778442989'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: llm
+      id: 1727357893396-false-1730860337573-target
+      source: '1727357893396'
+      sourceHandle: 'false'
+      target: '1730860337573'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: if-else
+      id: 1726108148263-source-1727357893396-target
+      source: '1726108148263'
+      sourceHandle: source
+      target: '1727357893396'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: if-else
+      id: 1730860337573-source-1730860548544-target
+      source: '1730860337573'
+      sourceHandle: source
+      target: '1730860548544'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: answer
+      id: 1730860548544-true-1729777900959-target
+      source: '1730860548544'
+      sourceHandle: 'true'
+      target: '1729777900959'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: if-else
+      id: 1730860548544-false-1729781189640-target
+      source: '1730860548544'
+      sourceHandle: 'false'
+      target: '1729781189640'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: answer
+        targetType: tool
+      id: 1729777900959-source-1731030018613-target
+      source: '1729777900959'
+      sourceHandle: source
+      target: '1731030018613'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: code
+      id: 1731030018613-source-1727437551868-target
+      source: '1731030018613'
+      sourceHandle: source
+      target: '1727437551868'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: code
+      id: 1731030018613-source-1727438265117-target
+      source: '1731030018613'
+      sourceHandle: source
+      target: '1727438265117'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: code
+      id: 1731030018613-source-17274404793180-target
+      source: '1731030018613'
+      sourceHandle: source
+      target: '17274404793180'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: code
+      id: 1731030018613-source-17274407417220-target
+      source: '1731030018613'
+      sourceHandle: source
+      target: '17274407417220'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: llm
+      id: 1727438089651-source-1727438962981-target
+      source: '1727438089651'
+      sourceHandle: source
+      target: '1727438962981'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: llm
+      id: 1727438463965-source-1727438962981-target
+      source: '1727438463965'
+      sourceHandle: source
+      target: '1727438962981'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: llm
+      id: 17274406200850-source-1727438962981-target
+      source: '17274406200850'
+      sourceHandle: source
+      target: '1727438962981'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: llm
+      id: 17274408457890-source-1727438962981-target
+      source: '17274408457890'
+      sourceHandle: source
+      target: '1727438962981'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - label: web搜索
+          max_length: 48
+          options:
+          - 开启
+          - 关闭
+          required: false
+          type: select
+          variable: web_search
+        - label: 角色定义
+          max_length: 1024
+          options: []
+          required: false
+          type: paragraph
+          variable: role_def
+      height: 116
+      id: '1726108148263'
+      position:
+        x: 28.613266497463286
+        y: 286.5
+      positionAbsolute:
+        x: 28.613266497463286
+        y: 286.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        memory:
+          query_prompt_template: '{{#1729777092216.text#}}
+
+
+            {{#sys.query#}}
+
+            '
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: true
+            size: 10
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: anthropic.claude-3-5-sonnet-20240620-v1:0
+          provider: langgenius/bedrock/bedrock
+        prompt_template:
+        - id: 44bec0ca-86b2-434d-bf4e-64f3ecbf27a3
+          role: system
+          text: '{{#1726108148263.role_def#}}, 结合上面文档内容回答问题'
+        selected: false
+        title: LLM 10
+        type: llm
+        variables: []
+        vision:
+          configs:
+            detail: high
+            variable_selector:
+            - '1729777695485'
+            - result
+          enabled: false
+      height: 96
+      id: llm
+      position:
+        x: 2462
+        y: 1153.5
+      positionAbsolute:
+        x: 2462
+        y: 1153.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#llm.text#}}'
+        desc: ''
+        selected: false
+        title: 直接回复
+        type: answer
+        variables: []
+      height: 103
+      id: answer
+      position:
+        x: 2766
+        y: 1151.5
+      positionAbsolute:
+        x: 2766
+        y: 1151.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: 4ba6856a-715c-4cdb-a815-6a06950322e5
+            value: 开启
+            varType: string
+            variable_selector:
+            - '1726108148263'
+            - web_search
+          id: 'true'
+          logical_operator: and
+        - case_id: a924b44a-824a-4912-924e-268e87240447
+          conditions:
+          - comparison_operator: contains
+            id: 0199f62e-073d-4bc0-a905-398775ffde75
+            value: 关闭
+            varType: string
+            variable_selector:
+            - '1726108148263'
+            - web_search
+          id: a924b44a-824a-4912-924e-268e87240447
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 条件分支
+        type: if-else
+      height: 174
+      id: '1727357893396'
+      position:
+        x: 334
+        y: 286.5
+      positionAbsolute:
+        x: 334
+        y: 286.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(search_results) -> dict:\n    return {\n        \"title\"\
+          \ : search_results[0]['organic_results'][0].get('title'),\n        \"url\"\
+          : search_results[0]['organic_results'][0].get('link'),\n        \"snippet\"\
+          \ : search_results[0]['organic_results'][0].get('snippet')\n    }"
+        code_language: python3
+        desc: ''
+        outputs:
+          snippet:
+            children: null
+            type: string
+          title:
+            children: null
+            type: string
+          url:
+            children: null
+            type: string
+        selected: false
+        title: search_1
+        type: code
+        variables:
+        - value_selector:
+          - '1731030018613'
+          - json
+          variable: search_results
+      height: 54
+      id: '1727437551868'
+      position:
+        x: 1854
+        y: 286.5
+      positionAbsolute:
+        x: 1854
+        y: 286.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        provider_id: webscraper
+        provider_name: webscraper
+        provider_type: builtin
+        selected: false
+        title: 网页爬虫
+        tool_configurations:
+          generate_summary: null
+          user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
+            (KHTML, like Gecko) Chrome/100.0.1000.0 Safari/537.36
+        tool_label: 网页爬虫
+        tool_name: webscraper
+        tool_parameters:
+          url:
+            type: mixed
+            value: '{{#1727437551868.url#}}'
+        type: tool
+      height: 116
+      id: '1727437724068'
+      position:
+        x: 2158
+        y: 286.5
+      positionAbsolute:
+        x: 2158
+        y: 286.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(crawl_result) -> str:\n    idx = crawl_result.find(\"TEXT:\\\
+          n\\n\")\n    start_idx = idx + len(\"TEXT:\\n\\n\")\n    return {\n    \
+          \    \"result\" : crawl_result[start_idx:8192]\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: post_1
+        type: code
+        variables:
+        - value_selector:
+          - '1727437724068'
+          - text
+          variable: crawl_result
+      height: 54
+      id: '1727437739002'
+      position:
+        x: 2462
+        y: 286.5
+      positionAbsolute:
+        x: 2462
+        y: 286.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: "{\n    \"Title\" : {{ title }},\n    \"URL\" : {{ url }},\n   \
+          \ \"snippet\" : {{ snippet }},\n    \"content\" : {{ content }}\n}"
+        title: 模板转换 1
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1727437739002'
+          - result
+          variable: content
+        - value_selector:
+          - '1727437551868'
+          - url
+          variable: url
+        - value_selector:
+          - '1727437551868'
+          - snippet
+          variable: title
+        - value_selector:
+          - '1727437551868'
+          - snippet
+          variable: snippet
+      height: 54
+      id: '1727438089651'
+      position:
+        x: 2766
+        y: 286.5
+      positionAbsolute:
+        x: 2766
+        y: 286.5
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(search_results) -> dict:\n    return {\n        \"title\"\
+          \ : search_results[0]['organic_results'][1].get('title'),\n        \"url\"\
+          : search_results[0]['organic_results'][1].get('link'),\n        \"snippet\"\
+          \ : search_results[0]['organic_results'][1].get('snippet'),\n    }"
+        code_language: python3
+        desc: ''
+        outputs:
+          snippet:
+            children: null
+            type: string
+          title:
+            children: null
+            type: string
+          url:
+            children: null
+            type: string
+        selected: false
+        title: search_2
+        type: code
+        variables:
+        - value_selector:
+          - '1731030018613'
+          - json
+          variable: search_results
+      height: 54
+      id: '1727438265117'
+      position:
+        x: 1854
+        y: 441.5
+      positionAbsolute:
+        x: 1854
+        y: 441.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        provider_id: webscraper
+        provider_name: webscraper
+        provider_type: builtin
+        selected: false
+        title: 网页爬虫
+        tool_configurations:
+          generate_summary: null
+          user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
+            (KHTML, like Gecko) Chrome/100.0.1000.0 Safari/537.36
+        tool_label: 网页爬虫
+        tool_name: webscraper
+        tool_parameters:
+          url:
+            type: mixed
+            value: '{{#1727438265117.url#}}'
+        type: tool
+      height: 116
+      id: '1727438331868'
+      position:
+        x: 2158
+        y: 441.5
+      positionAbsolute:
+        x: 2158
+        y: 441.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(crawl_result) -> str:\n    idx = crawl_result.find(\"TEXT:\\\
+          n\\n\")\n    start_idx = idx + len(\"TEXT:\\n\\n\")\n    return {\n    \
+          \    \"result\" : crawl_result[start_idx:8192]\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: POST 2
+        type: code
+        variables:
+        - value_selector:
+          - '1727438331868'
+          - text
+          variable: crawl_result
+      height: 54
+      id: '1727438349664'
+      position:
+        x: 2462
+        y: 441.5
+      positionAbsolute:
+        x: 2462
+        y: 441.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: "{\n    \"Title\" : {{ title }},\n    \"URL\" : {{ url }},\n   \
+          \ \"snippet\" : {{ snippet }},\n    \"content\" : {{ content }}\n}"
+        title: 模板转换 2
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1727438265117'
+          - snippet
+          variable: title
+        - value_selector:
+          - '1727438265117'
+          - url
+          variable: url
+        - value_selector:
+          - '1727438349664'
+          - result
+          variable: content
+        - value_selector:
+          - '1727438265117'
+          - snippet
+          variable: snippet
+      height: 54
+      id: '1727438463965'
+      position:
+        x: 2766
+        y: 441.5
+      positionAbsolute:
+        x: 2766
+        y: 441.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: anthropic.claude-3-5-sonnet-20240620-v1:0
+          provider: langgenius/bedrock/bedrock
+        prompt_template:
+        - id: 21458af2-ffc5-4488-9470-3a4ad579b1ce
+          role: system
+          text: '{{#1726108148263.role_def#}}，请参考提供搜索的内容回答问题'
+        - id: 35e1bbae-cfe5-478c-8b66-757348116763
+          role: user
+          text: '<search_result>
+
+            [
+
+            {{#1727438089651.output#}},
+
+            {{#1727438463965.output#}},
+
+            {{#17274406200850.output#}},
+
+            {{#17274408457890.output#}}
+
+            ]
+
+            </search_result>
+
+
+            ## Answer Format Example
+
+            $PLACEHOLDER_ANSWER$
+
+
+            参考链接：
+
+            1.  [Title](URL)
+
+            2. [Title](URL)
+
+            ...
+
+
+            ## Requirement：
+
+            1. 有些候选答案可能由于网页403无法获取的原因，无法直接回答， 忽略这些即可。
+
+            2. 直接给出回答，不用透露你综合了多个答案。
+
+            3. 如果采用了某搜索结果的内容，在Refernce部分按照序号，按照序号输出这个URL，以markdown的格式，如[title](url)。
+
+            4. 如果搜索结果中的Title过于冗长，直接输出URL也可以
+
+
+            {{#sys.query#}}'
+        selected: false
+        title: LLM_Final
+        type: llm
+        variables: []
+        vision:
+          configs:
+            detail: high
+          enabled: false
+      height: 96
+      id: '1727438962981'
+      position:
+        x: 3232.5714285714284
+        y: 510.07142857142856
+      positionAbsolute:
+        x: 3232.5714285714284
+        y: 510.07142857142856
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1727438962981.text#}}'
+        desc: ''
+        selected: false
+        title: 直接回复 2
+        type: answer
+        variables: []
+      height: 103
+      id: '1727439130548'
+      position:
+        x: 3570.8571428571427
+        y: 510.07142857142856
+      positionAbsolute:
+        x: 3570.8571428571427
+        y: 510.07142857142856
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(search_results) -> dict:\n    return {\n        \"title\"\
+          \ : search_results[0]['organic_results'][2].get('title'),\n        \"url\"\
+          : search_results[0]['organic_results'][2].get('link'),\n        \"snippet\"\
+          \ : search_results[0]['organic_results'][2].get('snippet')\n    }"
+        code_language: python3
+        desc: ''
+        outputs:
+          snippet:
+            children: null
+            type: string
+          title:
+            children: null
+            type: string
+          url:
+            children: null
+            type: string
+        selected: false
+        title: search_3
+        type: code
+        variables:
+        - value_selector:
+          - '1731030018613'
+          - json
+          variable: search_results
+      height: 54
+      id: '17274404793180'
+      position:
+        x: 1854
+        y: 596.5
+      positionAbsolute:
+        x: 1854
+        y: 596.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        provider_id: webscraper
+        provider_name: webscraper
+        provider_type: builtin
+        selected: false
+        title: 网页爬虫
+        tool_configurations:
+          generate_summary: null
+          user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
+            (KHTML, like Gecko) Chrome/100.0.1000.0 Safari/537.36
+        tool_label: 网页爬虫
+        tool_name: webscraper
+        tool_parameters:
+          url:
+            type: mixed
+            value: '{{#17274404793180.url#}}'
+        type: tool
+      height: 116
+      id: '17274405419030'
+      position:
+        x: 2158
+        y: 596.5
+      positionAbsolute:
+        x: 2158
+        y: 596.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(crawl_result) -> str:\n    idx = crawl_result.find(\"TEXT:\\\
+          n\\n\")\n    start_idx = idx + len(\"TEXT:\\n\\n\")\n    return {\n    \
+          \    \"result\" : crawl_result[start_idx:8192]\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: POST_3
+        type: code
+        variables:
+        - value_selector:
+          - '17274405419030'
+          - text
+          variable: crawl_result
+      height: 54
+      id: '17274405777680'
+      position:
+        x: 2462
+        y: 596.5
+      positionAbsolute:
+        x: 2462
+        y: 596.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: "{\n    \"Title\" : {{ title }},\n    \"URL\" : {{ url }},\n   \
+          \ \"snippet\" : {{ snippet }},\n    \"content\" : {{ content }}\n}"
+        title: 模板转换 3
+        type: template-transform
+        variables:
+        - value_selector:
+          - '17274404793180'
+          - snippet
+          variable: title
+        - value_selector:
+          - '17274404793180'
+          - url
+          variable: url
+        - value_selector:
+          - '17274405777680'
+          - result
+          variable: content
+        - value_selector:
+          - '17274404793180'
+          - snippet
+          variable: snippet
+      height: 54
+      id: '17274406200850'
+      position:
+        x: 2766
+        y: 596.5
+      positionAbsolute:
+        x: 2766
+        y: 596.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(search_results) -> dict:\n    return {\n        \"title\"\
+          \ : search_results[0]['organic_results'][3].get('title'),\n        \"url\"\
+          : search_results[0]['organic_results'][3].get('link'),\n        \"snippet\"\
+          \ : search_results[0]['organic_results'][3].get('snippet')\n    }"
+        code_language: python3
+        desc: ''
+        outputs:
+          snippet:
+            children: null
+            type: string
+          title:
+            children: null
+            type: string
+          url:
+            children: null
+            type: string
+        selected: false
+        title: search_4
+        type: code
+        variables:
+        - value_selector:
+          - '1731030018613'
+          - json
+          variable: search_results
+      height: 54
+      id: '17274407417220'
+      position:
+        x: 1854
+        y: 751.5
+      positionAbsolute:
+        x: 1854
+        y: 751.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        provider_id: webscraper
+        provider_name: webscraper
+        provider_type: builtin
+        selected: false
+        title: 网页爬虫
+        tool_configurations:
+          generate_summary: null
+          user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
+            (KHTML, like Gecko) Chrome/100.0.1000.0 Safari/537.36
+        tool_label: 网页爬虫
+        tool_name: webscraper
+        tool_parameters:
+          url:
+            type: mixed
+            value: '{{#17274407417220.url#}}'
+        type: tool
+      height: 116
+      id: '17274407666060'
+      position:
+        x: 2158
+        y: 751.5
+      positionAbsolute:
+        x: 2158
+        y: 751.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(crawl_result) -> str:\n    idx = crawl_result.find(\"TEXT:\\\
+          n\\n\")\n    start_idx = idx + len(\"TEXT:\\n\\n\")\n    return {\n    \
+          \    \"result\" : crawl_result[start_idx:8192]\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: POST_4
+        type: code
+        variables:
+        - value_selector:
+          - '17274407666060'
+          - text
+          variable: crawl_result
+      height: 54
+      id: '17274408191900'
+      position:
+        x: 2462
+        y: 751.5
+      positionAbsolute:
+        x: 2462
+        y: 751.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: "{\n    \"Title\" : {{ title }},\n    \"URL\" : {{ url }},\n   \
+          \ \"snippet\" : {{ snippet }},\n    \"content\" : {{ content }}\n}"
+        title: 模板转换 4
+        type: template-transform
+        variables:
+        - value_selector:
+          - '17274407417220'
+          - snippet
+          variable: title
+        - value_selector:
+          - '17274407417220'
+          - url
+          variable: url
+        - value_selector:
+          - '17274408191900'
+          - result
+          variable: content
+        - value_selector:
+          - '17274407417220'
+          - snippet
+          variable: snippet
+      height: 54
+      id: '17274408457890'
+      position:
+        x: 2766
+        y: 751.5
+      positionAbsolute:
+        x: 2766
+        y: 751.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_array_file: false
+        selected: false
+        title: 文档提取器
+        type: document-extractor
+        variable_selector:
+        - '1729777763543'
+        - first_record
+      height: 92
+      id: '1729777092216'
+      position:
+        x: 1854
+        y: 1155.5
+      positionAbsolute:
+        x: 1854
+        y: 1155.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: '{% for item in my_list %}
+
+          <docs>
+
+          <doc id="{{ loop.index }}">
+
+          {{ item }}
+
+          </doc>
+
+          </docs>
+
+          {% endfor %}'
+        title: template
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1729777092216'
+          - text
+          variable: my_list
+      height: 54
+      id: '1729777162616'
+      position:
+        x: 2158
+        y: 1206.5
+      positionAbsolute:
+        x: 2158
+        y: 1206.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        filter_by:
+          conditions:
+          - comparison_operator: in
+            key: type
+            value:
+            - image
+          enabled: true
+        item_var_type: file
+        limit:
+          enabled: false
+          size: 10
+        order_by:
+          enabled: false
+          key: ''
+          value: asc
+        selected: false
+        title: Image
+        type: list-operator
+        var_type: array[file]
+        variable:
+        - sys
+        - files
+      height: 92
+      id: '1729777695485'
+      position:
+        x: 1550
+        y: 1051.5
+      positionAbsolute:
+        x: 1550
+        y: 1051.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        filter_by:
+          conditions:
+          - comparison_operator: in
+            key: type
+            value:
+            - document
+          enabled: true
+        item_var_type: file
+        limit:
+          enabled: true
+          size: 2
+        order_by:
+          enabled: false
+          key: ''
+          value: asc
+        selected: false
+        title: Doc
+        type: list-operator
+        var_type: array[file]
+        variable:
+        - sys
+        - files
+      height: 92
+      id: '1729777763543'
+      position:
+        x: 1550
+        y: 1186.5
+      positionAbsolute:
+        x: 1550
+        y: 1186.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '开始搜索...
+
+
+          '
+        desc: ''
+        selected: false
+        title: intermediate_reply
+        type: answer
+        variables: []
+      height: 100
+      id: '1729777900959'
+      position:
+        x: 1246
+        y: 286.5
+      positionAbsolute:
+        x: 1246
+        y: 286.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        filter_by:
+          conditions:
+          - comparison_operator: <
+            key: size
+            value: '1'
+          enabled: true
+        item_var_type: file
+        limit:
+          enabled: false
+          size: 10
+        order_by:
+          enabled: false
+          key: ''
+          value: asc
+        selected: false
+        title: No-File
+        type: list-operator
+        var_type: array[file]
+        variable:
+        - sys
+        - files
+      height: 92
+      id: '1729778350970'
+      position:
+        x: 1550
+        y: 910.5
+      positionAbsolute:
+        x: 1550
+        y: 910.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        memory:
+          query_prompt_template: ''
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: true
+            size: 10
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: anthropic.claude-3-5-sonnet-20241022-v2:0
+          provider: langgenius/bedrock/bedrock
+        prompt_template:
+        - id: 716255c3-9cca-4fd7-943d-bcb8946c3aca
+          role: system
+          text: '{{#1726108148263.role_def#}}'
+        selected: false
+        title: LLM 9
+        type: llm
+        variables: []
+        vision:
+          configs:
+            detail: high
+            variable_selector:
+            - '1729777695485'
+            - result
+          enabled: true
+      height: 96
+      id: '1729778442989'
+      position:
+        x: 1854
+        y: 1018.5
+      positionAbsolute:
+        x: 1854
+        y: 1018.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1729778442989.text#}}'
+        desc: ''
+        selected: false
+        title: 直接回复 4
+        type: answer
+        variables: []
+      height: 103
+      id: '1729778610477'
+      position:
+        x: 2158
+        y: 1047.5
+      positionAbsolute:
+        x: 2158
+        y: 1047.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: anthropic.claude-3-5-sonnet-20241022-v2:0
+          provider: langgenius/bedrock/bedrock
+        prompt_template:
+        - id: deeb4fd7-f7da-48bd-a1f7-e0efc6a59888
+          role: system
+          text: '{{#1726108148263.role_def#}}'
+        - id: 8fe07dab-ee0b-417e-8dec-843748f94c5a
+          role: user
+          text: '{{#sys.query#}}'
+        selected: false
+        title: LLM 8
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 96
+      id: '1729778654959'
+      position:
+        x: 1854
+        y: 877.5
+      positionAbsolute:
+        x: 1854
+        y: 877.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1729778654959.text#}}'
+        desc: ''
+        selected: false
+        title: 直接回复 5
+        type: answer
+        variables: []
+      height: 103
+      id: '1729778683728'
+      position:
+        x: 2158
+        y: 906.5
+      positionAbsolute:
+        x: 2158
+        y: 906.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: empty
+            id: 738a2218-18af-480a-8201-1f51d5a4bfdb
+            value: ''
+            varType: array[file]
+            variable_selector:
+            - sys
+            - files
+          id: 'true'
+          logical_operator: and
+        - case_id: ddf6ba30-c72f-4f06-b783-af77419acf30
+          conditions:
+          - comparison_operator: contains
+            id: ca5005a5-ed74-4867-9a1d-722b2ba71375
+            sub_variable_condition:
+              case_id: e1030080-d7c9-40d0-941e-0cd30bf90649
+              conditions:
+              - comparison_operator: in
+                id: f4fe6e5b-c2bf-42d3-8d75-5f83939486e0
+                key: type
+                value:
+                - image
+                varType: string
+              logical_operator: and
+            value: ''
+            varType: array[file]
+            variable_selector:
+            - sys
+            - files
+          id: ddf6ba30-c72f-4f06-b783-af77419acf30
+          logical_operator: and
+        - case_id: 5ff411e5-2162-41de-80de-b51902a2380f
+          conditions:
+          - comparison_operator: contains
+            id: 0beb1d49-3f80-488f-a3b5-5b5e10a29e0b
+            sub_variable_condition:
+              case_id: d556ca9a-6562-4a88-aa37-fb646669d02d
+              conditions:
+              - comparison_operator: in
+                id: 6d195fa2-b71e-4bf8-8bc2-ef51fecf21d4
+                key: type
+                value:
+                - document
+                varType: string
+              logical_operator: and
+            value: ''
+            varType: array[file]
+            variable_selector:
+            - sys
+            - files
+          id: 5ff411e5-2162-41de-80de-b51902a2380f
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 条件分支 3
+        type: if-else
+      height: 270
+      id: '1729781189640'
+      position:
+        x: 1246
+        y: 814.5
+      positionAbsolute:
+        x: 1246
+        y: 814.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            stop:
+            - </category>
+            temperature: 0.7
+          mode: chat
+          name: us.anthropic.claude-3-5-sonnet-20240620-v1:0
+          provider: langgenius/bedrock/bedrock
+        prompt_template:
+        - id: 2f0f0390-0372-451c-ad0c-ad859b76b0af
+          role: system
+          text: '这是一个判断问题是否需要搜索实时信息的任务。请按照以下步骤进行:
+
+
+            1. 仔细分析问题,看看它是否可能随时间变化而需要搜索最新信息。
+
+            2. 如果问题确实需要搜索实时信息来获取最新答案,请回答"Yes"。
+
+            3. 如果问题不需要搜索实时信息,因为答案是永久不变的,请回答"No"。
+
+            4. 把你的答案输出到<category>和</category>之间'
+        - id: faf064e8-f465-4400-a3b7-562e1f5edaac
+          role: user
+          text: <question>{{#sys.query#}}</question>
+        - id: 2e71437d-78cb-4e07-ab18-3bd2bcdeb4df
+          role: assistant
+          text: <category>
+        selected: false
+        title: LLM 9
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 96
+      id: '1730860337573'
+      position:
+        x: 638
+        y: 992
+      positionAbsolute:
+        x: 638
+        y: 992
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: 1d4748fe-7be3-4281-af82-349b2d8bda55
+            value: 'Yes'
+            varType: string
+            variable_selector:
+            - '1730860337573'
+            - text
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 条件分支 3
+        type: if-else
+      height: 126
+      id: '1730860548544'
+      position:
+        x: 942
+        y: 992
+      positionAbsolute:
+        x: 942
+        y: 992
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        provider_id: google
+        provider_name: google
+        provider_type: builtin
+        selected: false
+        title: 谷歌搜索
+        tool_configurations: {}
+        tool_label: 谷歌搜索
+        tool_name: google_search
+        tool_parameters:
+          query:
+            type: mixed
+            value: '{{#sys.query#}}'
+        type: tool
+      height: 54
+      id: '1731030018613'
+      position:
+        x: 1555.7142857142858
+        y: 286.5
+      positionAbsolute:
+        x: 1555.7142857142858
+        y: 286.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: 83.744018590309
+      y: 106.4424476299724
+      zoom: 0.32293481193258344
