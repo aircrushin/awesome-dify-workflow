@@ -1,0 +1,1142 @@
+app:
+  description: ''
+  icon: face_with_monocle
+  icon_background: '#FFE4E8'
+  mode: workflow
+  name: 'GPT-Researcher '
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/tavily:0.0.2@694a00b7ed6087fb212512931042dc236fb7d2833fa32ff5f708317d61551777
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/anthropic:0.0.4@fb3e45f50d845d68735692ece0878a6566995d755f72f3af46e01ab3dcc0d8b8
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai:0.0.7@11ec0b1909200f62b6ebf2cec1da981a9071d11c1ee0e2ef332ce89bcffa2544
+kind: app
+version: 0.1.5
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 5
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: llm
+      id: 1730257085761-source-1730257098742-target
+      selected: false
+      source: '1730257085761'
+      sourceHandle: source
+      target: '1730257098742'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1730257098742-source-1730257648212-target
+      selected: false
+      source: '1730257098742'
+      sourceHandle: source
+      target: '1730257648212'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: iteration
+      id: 1730257648212-source-1730257830072-target
+      selected: false
+      source: '1730257648212'
+      sourceHandle: source
+      target: '1730257830072'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: true
+        iteration_id: '1730257830072'
+        sourceType: iteration-start
+        targetType: tool
+      id: 1730257830072start-source-1730257879652-target
+      selected: false
+      source: 1730257830072start
+      sourceHandle: source
+      target: '1730257879652'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        iteration_id: '1730257830072'
+        sourceType: tool
+        targetType: llm
+      id: 1730257879652-source-1730259235391-target
+      selected: false
+      source: '1730257879652'
+      sourceHandle: source
+      target: '1730259235391'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1730257648212-source-1730259707121-target
+      selected: false
+      source: '1730257648212'
+      sourceHandle: source
+      target: '1730259707121'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: parameter-extractor
+      id: 1730259707121-source-1730260137415-target
+      selected: false
+      source: '1730259707121'
+      sourceHandle: source
+      target: '1730260137415'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: template-transform
+      id: 1730260569281-source-1730259990083-target
+      selected: false
+      source: '1730260569281'
+      sourceHandle: source
+      target: '1730259990083'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: parameter-extractor
+        targetType: llm
+      id: 1730260137415-source-1730260569281-target
+      selected: false
+      source: '1730260137415'
+      sourceHandle: source
+      target: '1730260569281'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: parameter-extractor
+        targetType: llm
+      id: 1730260137415-source-1730260824960-target
+      selected: false
+      source: '1730260137415'
+      sourceHandle: source
+      target: '1730260824960'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: iteration
+        targetType: parameter-extractor
+      id: 1730257830072-source-1730260137415-target
+      selected: false
+      source: '1730257830072'
+      sourceHandle: source
+      target: '1730260137415'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: parameter-extractor
+        targetType: llm
+      id: 1730260137415-source-17302609631470-target
+      selected: false
+      source: '1730260137415'
+      sourceHandle: source
+      target: '17302609631470'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: parameter-extractor
+        targetType: llm
+      id: 1730260137415-source-17302610163900-target
+      selected: false
+      source: '1730260137415'
+      sourceHandle: source
+      target: '17302610163900'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: template-transform
+      id: 1730260824960-source-1730259990083-target
+      selected: false
+      source: '1730260824960'
+      sourceHandle: source
+      target: '1730259990083'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: template-transform
+      id: 17302609631470-source-1730259990083-target
+      selected: false
+      source: '17302609631470'
+      sourceHandle: source
+      target: '1730259990083'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: template-transform
+      id: 17302610163900-source-1730259990083-target
+      selected: false
+      source: '17302610163900'
+      sourceHandle: source
+      target: '1730259990083'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: end
+      id: 1730259990083-source-1730261407654-target
+      selected: false
+      source: '1730259990083'
+      sourceHandle: source
+      target: '1730261407654'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: start
+        type: start
+        variables:
+        - label: title
+          max_length: 100
+          options: []
+          required: true
+          type: text-input
+          variable: title
+        - label: language
+          max_length: 48
+          options:
+          - 中文
+          - English
+          - 日本語
+          required: true
+          type: select
+          variable: language
+      height: 116
+      id: '1730257085761'
+      position:
+        x: 28.05097515220939
+        y: 248.5
+      positionAbsolute:
+        x: 28.05097515220939
+        y: 248.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 1
+          mode: chat
+          name: claude-3-5-sonnet-20241022
+          provider: langgenius/anthropic/anthropic
+        prompt_template:
+        - id: e18aef50-3449-4259-9559-c4d17101d533
+          role: system
+          text: "<instruction>\n<task_description>\nGenerate a series of appropriate\
+            \ search engine queries to break down questions based on user inquiries\n\
+            </task_description>\n\n<examples>\n<example>\nInput: User asks how to\
+            \ learn programming\nOutput: 'programming learning methods, 'programming\
+            \ tutorials for beginners'\n</example>\n\n<example>\nInput: User wants\
+            \ to understand latest technology trends  \nOutput: 'tech trends 2021',\
+            \ 'latest technology news'\n</example>\n\n<example>\nInput: User seeks\
+            \ healthy eating advice\nOutput: 'healthy eating guide', 'balanced nutrition\
+            \ diet'\n</example>\n</examples>\n\n<instructions>\n1. Take user's question\
+            \ as input.\n2. Identify relevant keywords or phrases based on the topic\
+            \ of user's question.\n3. Use these keywords or phrases to make search\
+            \ engine queries.\n4. Generate a series of appropriate search engine queries\
+            \ to help break down user's question.\n5. Ensure output content does not\
+            \ contain any xml tags.\n6.The output must be pure and conform to the\
+            \ <example> style without other explanations.\n7.Break down into at least\
+            \ 4-6 subproblems.\n8.Output is separated only by commas.\n</instructions>"
+        - id: b0e446f2-b714-41e9-8eb6-292187a97796
+          role: user
+          text: 'title：{{#1730257085761.title#}}
+
+            language：{{#1730257085761.language#}}
+
+            The output must be pure and conform to the <example> style without other
+            explanations.
+
+            Output is separated only by commas.
+
+            Break down into at least 4-6 subproblems.'
+        selected: false
+        title: LLM
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 96
+      id: '1730257098742'
+      position:
+        x: 321.6365008011338
+        y: 248.5
+      positionAbsolute:
+        x: 321.6365008011338
+        y: 248.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(input_str: str) -> dict:\n    if not input_str:\n        return\
+          \ {'result': []}\n    \n    input_str = input_str.strip().strip('\"')\n\
+          \    items = [item.strip() for item in input_str.split(',')]\n    \n   \
+          \ return {'result': items}"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: array[string]
+        selected: false
+        title: code
+        type: code
+        variables:
+        - value_selector:
+          - '1730257098742'
+          - text
+          variable: input_str
+      height: 54
+      id: '1730257648212'
+      position:
+        x: 635.9314896948702
+        y: 248.5
+      positionAbsolute:
+        x: 635.9314896948702
+        y: 248.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        error_handle_mode: continue-on-error
+        height: 333
+        is_parallel: true
+        iterator_selector:
+        - '1730257648212'
+        - result
+        output_selector:
+        - '1730259235391'
+        - text
+        output_type: array[string]
+        parallel_nums: 10
+        selected: false
+        start_node_id: 1730257830072start
+        title: 迭代
+        type: iteration
+        width: 913
+      height: 333
+      id: '1730257830072'
+      position:
+        x: 937.5528258071076
+        y: 385.5
+      positionAbsolute:
+        x: 937.5528258071076
+        y: 385.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 913
+      zIndex: 1
+    - data:
+        desc: ''
+        isInIteration: true
+        selected: false
+        title: ''
+        type: iteration-start
+      draggable: false
+      height: 48
+      id: 1730257830072start
+      parentId: '1730257830072'
+      position:
+        x: 24
+        y: 68
+      positionAbsolute:
+        x: 961.5528258071076
+        y: 453.5
+      selectable: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-iteration-start
+      width: 44
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        iteration_id: '1730257830072'
+        provider_id: tavily
+        provider_name: tavily
+        provider_type: builtin
+        selected: false
+        title: TavilySearch
+        tool_configurations:
+          exclude_domains: null
+          include_answer: null
+          include_domains: null
+          include_images: null
+          include_raw_content: null
+          max_results: 5
+          search_depth: basic
+        tool_label: TavilySearch
+        tool_name: tavily_search
+        tool_parameters:
+          query:
+            type: mixed
+            value: '{{#1730257830072.item#}}'
+        type: tool
+      height: 246
+      id: '1730257879652'
+      parentId: '1730257830072'
+      position:
+        x: 128
+        y: 67
+      positionAbsolute:
+        x: 1065.5528258071076
+        y: 452.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        isInIteration: true
+        iteration_id: '1730257830072'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: claude-3-haiku-20240307
+          provider: langgenius/anthropic/anthropic
+        prompt_template:
+        - edition_type: basic
+          id: d8e18834-ba12-4acb-b376-15340d30a3e3
+          jinja2_text: '"{research_summary}" Using the above information, answer the
+            following question or topic: "{question}" in a detailed report — The report
+            should focus on the answer to the question, should be well structured,
+            informative, in depth, with facts and numbers if available, a minimum
+            of 1,200 words and with markdown syntax and apa format. Write all source
+            urls at the end of the report in apa format. You should write your report
+            only based on the given information and nothing else.'
+          role: system
+          text: "Your goal is to provide answers based on information from the internet.\
+            \ \nYou must use the provided Tavily search API function to find relevant\
+            \ online information. \nYou should never use your own knowledge to answer\
+            \ questions.\nPlease include relevant url sources in the end of your answers"
+        - id: b23ba544-1b25-4d0a-abdf-34a6c22a2c76
+          role: user
+          text: "language：{{#1730257085761.language#}}\n \"{{#1730257879652.text#}}\"\
+            \ Using the above information, answer the following question or topic:\
+            \ \"{{#1730257830072.item#}} \"\nin a detailed report — The report should\
+            \ focus on the answer to the question, should be well structured, informative,\
+            \ in depth, with facts and numbers if available, a minimum of 1,200 words\
+            \ and with markdown syntax and apa format. Write all source urls at the\
+            \ end of the report in apa format. You should write your report only based\
+            \ on the given information and nothing else."
+        selected: false
+        title: LLM 3
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 96
+      id: '1730259235391'
+      parentId: '1730257830072'
+      position:
+        x: 421.40978070048254
+        y: 65
+      positionAbsolute:
+        x: 1358.9626065075902
+        y: 450.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: 3b248cc7-ce1c-4d24-b20c-aa988aaad672
+          role: system
+          text: 'according{{#1730257648212.result#}}，{{#1730257085761.title#}}Generate
+            3 to 5 sub-titles.
+
+            <instructions>
+
+            Please generate 4 subheadings for the main title following these steps:
+
+            Carefully read the provided main title and related content
+
+            Analyze the core theme and key information points of the main title
+
+            Ensure the generated subheadings maintain consistency and relevance with
+            the main title
+
+            Each subheading should:
+
+            Be concise and appropriate in length
+
+            Highlight a unique angle or key point
+
+            Capture readers'' interest
+
+            Match the overall style and tone of the article
+
+            Between subheadings:
+
+            Content should not overlap
+
+            Logical order should be maintained
+
+            Should collectively support the main title
+
+            Use numerical sequence (1, 2, 3...) to mark each subheading
+
+            Outputformatrequirements:
+
+            Each subheading on a separate line
+
+            No XML tags included
+
+            Output subheadings content only
+
+            </instructions>'
+        - id: 5a7b9e7a-e8f8-4564-a9bf-85861c4fe312
+          role: user
+          text: 'language：{{#1730257085761.language#}}
+
+            Generate a series of appropriate sub-title to help break down {{#1730257085761.title#}}.
+
+            Breaks down complex topics into manageable subtopics'
+        selected: false
+        title: LLM 3
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1730259707121'
+      position:
+        x: 1279.1060058303985
+        y: 248.5
+      positionAbsolute:
+        x: 1279.1060058303985
+        y: 248.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: '<h1>{{ arg0 }}</h1>
+
+
+          <h2>{{ arg1 }}</h2>
+
+          <div>{{ arg5 }}</div>
+
+
+          <h2>{{ arg2 }}</h2>
+
+          <div>{{ arg6 }}</div>
+
+
+          <h2>{{ arg3 }}</h2>
+
+          <div>{{ arg7 }}</div>
+
+
+          <h2>{{ arg4 }}</h2>
+
+          <div>{{ arg8 }}</div>'
+        title: Template conversion
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1730257085761'
+          - title
+          variable: arg0
+        - value_selector:
+          - '1730260137415'
+          - sub_title1
+          variable: arg1
+        - value_selector:
+          - '1730260137415'
+          - sub_title2
+          variable: arg2
+        - value_selector:
+          - '1730260137415'
+          - sub_title3
+          variable: arg3
+        - value_selector:
+          - '1730260137415'
+          - sub_title4
+          variable: arg4
+        - value_selector:
+          - '1730260569281'
+          - text
+          variable: arg5
+        - value_selector:
+          - '1730260824960'
+          - text
+          variable: arg6
+        - value_selector:
+          - '17302609631470'
+          - text
+          variable: arg7
+        - value_selector:
+          - '17302610163900'
+          - text
+          variable: arg8
+      height: 54
+      id: '1730259990083'
+      position:
+        x: 2520.0598019148374
+        y: 385.5
+      positionAbsolute:
+        x: 2520.0598019148374
+        y: 385.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        instruction: '{{#1730259707121.text#}}Extract the return value in the output
+          value as four independent parameters.Avoids redundancy by tracking previously
+          written content'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: claude-3-5-sonnet-20241022
+          provider: langgenius/anthropic/anthropic
+        parameters:
+        - description: NO.1 sub title
+          name: sub_title1
+          required: false
+          type: string
+        - description: NO.2 sub_title
+          name: sub_title2
+          required: false
+          type: string
+        - description: NO.3 sub_title
+          name: sub_title3
+          required: false
+          type: string
+        - description: NO.4 sub_title
+          name: sub_title4
+          required: false
+          type: string
+        query:
+        - '1730259707121'
+        - text
+        reasoning_mode: prompt
+        selected: false
+        title: Parameter extractor
+        type: parameter-extractor
+        variables: []
+        vision:
+          enabled: false
+      height: 96
+      id: '1730260137415'
+      position:
+        x: 1912.2237746075607
+        y: 248.5
+      positionAbsolute:
+        x: 1912.2237746075607
+        y: 248.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 1
+          mode: chat
+          name: claude-3-haiku-20240307
+          provider: langgenius/anthropic/anthropic
+        prompt_template:
+        - id: 3ef1efde-48b7-4f8d-830b-44e92815950f
+          role: system
+          text: in a detailed report — The report should focus on the answer to {{#1730260137415.sub_title1#}}and
+            nothing else.
+        - id: 04881f0e-1a81-4c5c-813a-5123d62689e8
+          role: user
+          text: "language：{{#1730257085761.language#}}\ncontext：{{#1730257830072.output#}}\n\
+            Provide the research report in the specified language, avoiding small\
+            \ talk.\nThe main content is provided in markdown format\nWrite all source\
+            \ urls at the end of the report in apa format. \n\n"
+        selected: false
+        title: LLM 5
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 96
+      id: '1730260569281'
+      position:
+        x: 2219
+        y: 248.5
+      positionAbsolute:
+        x: 2219
+        y: 248.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 1
+          mode: chat
+          name: claude-3-haiku-20240307
+          provider: langgenius/anthropic/anthropic
+        prompt_template:
+        - id: c059b7a1-a7cb-4d2d-a258-cc4bd122ff7f
+          role: system
+          text: in a detailed report — The report should focus on the answer to {{#1730260137415.sub_title2#}}and
+            nothing else.
+        - id: e494e57c-eff3-434d-bba7-4981a6dfd212
+          role: user
+          text: "language：{{#1730257085761.language#}}\ncontext：{{#1730257830072.output#}}\n\
+            Provide the research report in the specified language, avoiding small\
+            \ talk.\nThe main content is provided in markdown format\nWrite all source\
+            \ urls at the end of the report in apa format. \n"
+        selected: false
+        title: LLM 6
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 96
+      id: '1730260824960'
+      position:
+        x: 2219
+        y: 385.5
+      positionAbsolute:
+        x: 2219
+        y: 385.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 1
+          mode: chat
+          name: claude-3-haiku-20240307
+          provider: langgenius/anthropic/anthropic
+        prompt_template:
+        - id: c059b7a1-a7cb-4d2d-a258-cc4bd122ff7f
+          role: system
+          text: in a detailed report — The report should focus on the answer to {{#1730260137415.sub_title3#}}and
+            nothing else.
+        - id: 53cd6741-f1ef-4480-9778-9e8c1ea2e298
+          role: user
+          text: 'language：{{#1730257085761.language#}}
+
+            context：{{#1730257830072.output#}}
+
+            Provide the research report in the specified language, avoiding small
+            talk.
+
+            The main content is provided in markdown format
+
+            Write all source urls at the end of the report in apa format. '
+        selected: false
+        title: LLM 7
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 96
+      id: '17302609631470'
+      position:
+        x: 2219
+        y: 534.1112425967152
+      positionAbsolute:
+        x: 2219
+        y: 534.1112425967152
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 1
+          mode: chat
+          name: claude-3-haiku-20240307
+          provider: langgenius/anthropic/anthropic
+        prompt_template:
+        - id: c059b7a1-a7cb-4d2d-a258-cc4bd122ff7f
+          role: system
+          text: in a detailed report — The report should focus on the answer to {{#1730260137415.sub_title4#}}and
+            nothing else.
+        - id: 2773ef9d-37b8-49f8-9455-c2399538407f
+          role: user
+          text: "language：{{#1730257085761.language#}}\ncontext：{{#1730257830072.output#}}\n\
+            Provide the research report in the specified language, avoiding small\
+            \ talk.\nThe main content is provided in markdown format\nWrite all source\
+            \ urls at the end of the report in apa format. \n\n"
+        selected: false
+        title: LLM 8
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 96
+      id: '17302610163900'
+      position:
+        x: 2219
+        y: 663.0900315719681
+      positionAbsolute:
+        x: 2219
+        y: 663.0900315719681
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1730259990083'
+          - output
+          variable: output
+        selected: true
+        title: End
+        type: end
+      height: 90
+      id: '1730261407654'
+      position:
+        x: 2827
+        y: 385.5
+      positionAbsolute:
+        x: 2827
+        y: 385.5
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        author: Dify
+        desc: ''
+        height: 168
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"GPT-Researcher
+          接收两个变量输入:","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"font-size:
+          12px;","text":"标题:要研究的命题","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":1},{"children":[{"detail":0,"format":0,"mode":"normal","style":"font-size:
+          12px;","text":"语言:研究报告的语言偏好","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":2}],"direction":"ltr","format":"","indent":0,"type":"list","version":1,"listType":"number","start":1,"tag":"ol"}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 168
+      id: '1730387967784'
+      position:
+        x: 28.05097515220939
+        y: 7.975706889733289
+      positionAbsolute:
+        x: 28.05097515220939
+        y: 7.975706889733289
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        author: Dify
+        desc: ''
+        height: 173
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"步骤1:
+          首先,让大语言模型(LLM)提供一系列与命题相关的搜索引擎查询。可以通过不同角度的查询进行全面研究。","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 242
+      height: 173
+      id: '1730388614165'
+      position:
+        x: 321.6365008011338
+        y: 7.975706889733289
+      positionAbsolute:
+        x: 321.6365008011338
+        y: 7.975706889733289
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 242
+    - data:
+        author: Dify
+        desc: ''
+        height: 188
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"步骤2:
+          由于迭代的输入要求是一个数组,我们使用一个代码节点从LLM的字符串输出中提取子查询。在这里,可以使用新的\"代码生成器\"功能快速生成所需的代码。","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 188
+      id: '1730388689290'
+      position:
+        x: 635.9314896948702
+        y: 7.975706889733289
+      positionAbsolute:
+        x: 635.9314896948702
+        y: 7.975706889733289
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        author: Dify
+        desc: ''
+        height: 224
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"步骤3:
+          我们构建了两个并行分支。一个是使用LLM根据搜索引擎查询总结出适合命题研究的次级标题。另一个分支使用迭代,同时使用Tavily查询每个子查询,然后使用LLM进行归纳研究。在这里,我们使用迭代和并行模式的高级功能来加速搜索。","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ' (1)'
+        type: ''
+        width: 281
+      height: 224
+      id: '17303887996700'
+      position:
+        x: 968.506506560585
+        y: 7.975706889733289
+      positionAbsolute:
+        x: 968.506506560585
+        y: 7.975706889733289
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 281
+    - data:
+        author: Dify
+        desc: ''
+        height: 198
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"第4步:
+          我们使用参数提取器从前一个LLM输出的次级研究命题中提取共4个子标题。然后,我们使用四个并行分支以迭代输出作为上下文(现在提示可以支持注入一个数组[字符串])来回答这四个问题。","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: '  (2)'
+        type: ''
+        width: 289
+      height: 198
+      id: '17303896484860'
+      position:
+        x: 1279.1060058303985
+        y: 7.975706889733289
+      positionAbsolute:
+        x: 1279.1060058303985
+        y: 7.975706889733289
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 289
+    - data:
+        author: Dify
+        desc: ''
+        height: 156
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"最后,我们使用模板节点有序地拼接前面的一级标题、二级标题和研究结论,以获得一份完整的研究报告。
+          😃","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: '  (3)'
+        type: ''
+        width: 283
+      height: 156
+      id: '17303898217580'
+      position:
+        x: 1676.1759535081464
+        y: 7.975706889733289
+      positionAbsolute:
+        x: 1676.1759535081464
+        y: 7.975706889733289
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 283
+    - data:
+        author: Dify
+        desc: ''
+        height: 175
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"1.
+          佛罗伦萨艺术历史研究","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"2.
+          Minecraft 完整历史","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"3.
+          OpenAI 编年史","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0},{"children":[{"type":"linebreak","version":1}],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 175
+      id: '1730452566694'
+      position:
+        x: -241.22286003072242
+        y: 7.975706889733289
+      positionAbsolute:
+        x: -241.22286003072242
+        y: 7.975706889733289
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    viewport:
+      x: -770.712235479627
+      y: -25.883561625789298
+      zoom: 0.5467659899053819

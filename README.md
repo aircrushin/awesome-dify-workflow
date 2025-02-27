@@ -24,6 +24,11 @@
 仿 KIMI 风格的工作流，多模态联网搜索和文件读取
 ![simple-kimi流程](/imgs/simple-kimi.png)
 
+### deep-research
+
+一个深度研究工作流，通过联网搜索和文件读取，生成详细的研究报告。
+![deep-research流程](/imgs/deep-research.png)
+
 ## 贡献
 
 欢迎提交高质量的工作流，提交方式：
