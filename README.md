@@ -4,6 +4,11 @@
 
 ## 目录
 
+### DeepGemini
+
+DeepSeek R1 和 Gemini 2.0 的结合,实现更好的思考过程和更优质的输出
+![DeepGemini流程](/imgs/DeepGemini.png)
+
 ### 长文本写作
 
 通过生成大纲再生成具体内容的方式实现上万字的超长文本输出。
