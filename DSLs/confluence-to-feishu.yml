@@ -1,0 +1,2105 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: workflow
+  name: 【生产勿动】Confluence to Feishu
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/feishu_message:0.0.1@f826c248b7e1cfb5a93e9c4ac526275a633997130f47d65e02dc40d8ae584b3c
+    version: null
+kind: app
+version: 0.6.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 2
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        file_upload_limit: 50
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        single_chunk_attachment_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: tool
+      id: 1772619737251-source-1772619783917-target
+      source: '1772619737251'
+      sourceHandle: source
+      target: '1772619783917'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: tool
+      id: 17726200308190-source-17726200387770-target
+      source: '17726200308190'
+      sourceHandle: source
+      target: '17726200387770'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: tool
+      id: 17726200308190-source-17726212517840-target
+      source: '17726200308190'
+      sourceHandle: source
+      target: '17726212517840'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: trigger-webhook
+        targetType: code
+      id: 1772619676592-source-1772623538969-target
+      source: '1772619676592'
+      sourceHandle: source
+      target: '1772623538969'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: 1772623538969-source-1772623565085-target
+      source: '1772623538969'
+      sourceHandle: source
+      target: '1772623565085'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1772623565085-93e96e49-2ad4-482e-b50e-e3f9bc2740eb-17726200353670-target
+      source: '1772623565085'
+      sourceHandle: 93e96e49-2ad4-482e-b50e-e3f9bc2740eb
+      target: '17726200353670'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1772623565085-d93d6e59-3db9-4b2b-ad43-63e08fd64953-17726200324410-target
+      source: '1772623565085'
+      sourceHandle: d93d6e59-3db9-4b2b-ad43-63e08fd64953
+      target: '17726200324410'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1772623565085-37db1000-0480-4d23-9ae8-4e36f2d51c82-17726200308190-target
+      source: '1772623565085'
+      sourceHandle: 37db1000-0480-4d23-9ae8-4e36f2d51c82
+      target: '17726200308190'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1772623565085-true-1772619737251-target
+      source: '1772623565085'
+      sourceHandle: 'true'
+      target: '1772619737251'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: 17726200353670-source-1772698447593-target
+      source: '17726200353670'
+      sourceHandle: source
+      target: '1772698447593'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: tool
+      id: 1772698447593-true-17726200447000-target
+      source: '1772698447593'
+      sourceHandle: 'true'
+      target: '17726200447000'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: 17726200324410-source-1772698477175-target
+      source: '17726200324410'
+      sourceHandle: source
+      target: '1772698477175'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: tool
+      id: 1772698477175-true-17726200410700-target
+      source: '1772698477175'
+      sourceHandle: 'true'
+      target: '17726200410700'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        async_mode: true
+        body: []
+        content_type: application/json
+        headers: []
+        method: POST
+        params: []
+        response_body: ''
+        selected: false
+        status_code: 200
+        title: confluence event
+        type: trigger-webhook
+        variables:
+        - label: raw
+          required: true
+          value_selector: []
+          value_type: object
+          variable: _webhook_raw
+        webhook_debug_url: ''
+        webhook_url: ''
+      height: 130
+      id: '1772619676592'
+      position:
+        x: -644.7505534290547
+        y: 253.76289592873326
+      positionAbsolute:
+        x: -644.7505534290547
+        y: 253.76289592873326
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import json\n\n\ndef _name_from_email(email: str) -> str:\n    \"\"\
+          \"Extract display name from email: peter.han@dify.ai -> Peter Han\"\"\"\n\
+          \    local = email.split(\"@\")[0] if \"@\" in email else email\n    parts\
+          \ = local.replace(\"_\", \".\").replace(\"-\", \".\").split(\".\")\n   \
+          \ return \" \".join(p.capitalize() for p in parts if p)\n\n\ndef main(payload:\
+          \ str) -> dict:\n    data = json.loads(payload) if isinstance(payload, str)\
+          \ else payload\n    if \"body\" in data and \"method\" in data:\n      \
+          \  data = data[\"body\"]\n\n    page = data.get(\"page\", {})\n    blogpost\
+          \ = data.get(\"blogpost\", {})\n    mentions = data.get(\"mentions\", {})\n\
+          \    if blogpost.get(\"title\"):\n        title, url, content_type = blogpost[\"\
+          title\"], blogpost.get(\"url\", \"\"), \"Blog Post\"\n        author_email\
+          \ = blogpost.get(\"author\", \"\") or \"Someone\"\n    else:\n        title,\
+          \ url, content_type = page.get(\"title\", \"Untitled\"), page.get(\"url\"\
+          , \"\"), \"Page\"\n        author_email = page.get(\"author\", \"\") or\
+          \ \"Someone\"\n    author = _name_from_email(author_email)\n\n    email\
+          \ = mentions.get(\"email\", \"Unknown\")\n    card = {\n        \"config\"\
+          : {\"wide_screen_mode\": True},\n        \"header\": {\n            \"title\"\
+          : {\"tag\": \"plain_text\", \"content\": \"\U0001F4E2 Confluence Mention\"\
+          },\n            \"template\": \"blue\",\n        },\n        \"elements\"\
+          : [\n            {\n                \"tag\": \"div\",\n                \"\
+          text\": {\n                    \"tag\": \"lark_md\",\n                 \
+          \   \"content\": f\"**{author}** mentioned you in a {content_type}\",\n\
+          \                },\n            },\n            {\"tag\": \"hr\"},\n  \
+          \          {\n                \"tag\": \"div\",\n                \"text\"\
+          : {\n                    \"tag\": \"lark_md\",\n                    \"content\"\
+          : f\"**\U0001F4C4 {content_type}:** [{title}]({url})\",\n              \
+          \  },\n            },\n            {\"tag\": \"hr\"},\n            {\n \
+          \               \"tag\": \"action\",\n                \"actions\": [\n \
+          \                   {\n                        \"tag\": \"button\",\n  \
+          \                      \"text\": {\"tag\": \"plain_text\", \"content\":\
+          \ f\"View {content_type}\"},\n                        \"url\": url,\n  \
+          \                      \"type\": \"primary\",\n                    }\n \
+          \               ],\n            },\n            {\n                \"tag\"\
+          : \"note\",\n                \"elements\": [\n                    {\"tag\"\
+          : \"plain_text\", \"content\": \"Confluence → Dify Notification\"},\n  \
+          \              ],\n            },\n        ],\n    }\n\n    return {\n \
+          \       \"email\": email,\n        \"content\": json.dumps(card, ensure_ascii=False),\n\
+          \    }\n"
+        code_language: python3
+        outputs:
+          content:
+            children: null
+            type: string
+          email:
+            children: null
+            type: string
+        selected: false
+        title: mentioned notification builder
+        type: code
+        variables:
+        - value_selector:
+          - '1772619676592'
+          - _webhook_raw
+          value_type: object
+          variable: payload
+      height: 52
+      id: '1772619737251'
+      position:
+        x: 415.948460433636
+        y: 65.66252376562434
+      positionAbsolute:
+        x: 415.948460433636
+        y: 65.66252376562434
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            ja_JP: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            pt_BR: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            zh_Hans: 消息接收者的 ID，ID 类型与查询参数 receive_id_type 的取值一致。
+          label:
+            en_US: receive_id
+            ja_JP: receive_id
+            pt_BR: receive_id
+            zh_Hans: 消息接收者的 ID
+          llm_description: 消息接收者的 ID，ID 类型与查询参数 receive_id_type 的取值一致。
+          max: null
+          min: null
+          name: receive_id
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            ja_JP: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            pt_BR: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            zh_Hans: 消息接收者的 ID 类型，可选值有 open_id、union_id、user_id、email、chat_id，默认值为
+              open_id。
+          label:
+            en_US: receive_id_type
+            ja_JP: receive_id_type
+            pt_BR: receive_id_type
+            zh_Hans: 消息接收者的 ID 类型
+          llm_description: 消息接收者的 ID 类型，可选值有 open_id、union_id、user_id、email、chat_id，默认值为
+            open_id。
+          max: null
+          min: null
+          name: receive_id_type
+          options:
+          - icon: ''
+            label:
+              en_US: open_id
+              ja_JP: open_id
+              pt_BR: open_id
+              zh_Hans: open_id
+            value: open_id
+          - icon: ''
+            label:
+              en_US: union_id
+              ja_JP: union_id
+              pt_BR: union_id
+              zh_Hans: union_id
+            value: union_id
+          - icon: ''
+            label:
+              en_US: user_id
+              ja_JP: user_id
+              pt_BR: user_id
+              zh_Hans: user_id
+            value: user_id
+          - icon: ''
+            label:
+              en_US: email
+              ja_JP: email
+              pt_BR: email
+              zh_Hans: email
+            value: email
+          - icon: ''
+            label:
+              en_US: chat_id
+              ja_JP: chat_id
+              pt_BR: chat_id
+              zh_Hans: chat_id
+            value: chat_id
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            ja_JP: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            pt_BR: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            zh_Hans: 消息类型。可选值有：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user、system。不同消息类型的详细介绍，参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          label:
+            en_US: msg_type
+            ja_JP: msg_type
+            pt_BR: msg_type
+            zh_Hans: 消息类型
+          llm_description: 消息类型。可选值有：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user、system。不同消息类型的详细介绍，参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          max: null
+          min: null
+          name: msg_type
+          options:
+          - icon: ''
+            label:
+              en_US: text
+              ja_JP: text
+              pt_BR: text
+              zh_Hans: 文本
+            value: text
+          - icon: ''
+            label:
+              en_US: interactive
+              ja_JP: interactive
+              pt_BR: interactive
+              zh_Hans: 卡片
+            value: interactive
+          - icon: ''
+            label:
+              en_US: post
+              ja_JP: post
+              pt_BR: post
+              zh_Hans: 富文本
+            value: post
+          - icon: ''
+            label:
+              en_US: image
+              ja_JP: image
+              pt_BR: image
+              zh_Hans: 图片
+            value: image
+          - icon: ''
+            label:
+              en_US: file
+              ja_JP: file
+              pt_BR: file
+              zh_Hans: 文件
+            value: file
+          - icon: ''
+            label:
+              en_US: audio
+              ja_JP: audio
+              pt_BR: audio
+              zh_Hans: 语音
+            value: audio
+          - icon: ''
+            label:
+              en_US: media
+              ja_JP: media
+              pt_BR: media
+              zh_Hans: 视频
+            value: media
+          - icon: ''
+            label:
+              en_US: sticker
+              ja_JP: sticker
+              pt_BR: sticker
+              zh_Hans: 表情包
+            value: sticker
+          - icon: ''
+            label:
+              en_US: share_chat
+              ja_JP: share_chat
+              pt_BR: share_chat
+              zh_Hans: 分享群名片
+            value: share_chat
+          - icon: ''
+            label:
+              en_US: share_user
+              ja_JP: share_user
+              pt_BR: share_user
+              zh_Hans: 分享个人名片
+            value: share_user
+          - icon: ''
+            label:
+              en_US: system
+              ja_JP: system
+              pt_BR: system
+              zh_Hans: 系统消息
+            value: system
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            ja_JP: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            pt_BR: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            zh_Hans: 消息内容，JSON 结构序列化后的字符串。该参数的取值与 msg_type 对应，例如 msg_type 取值为 text，则该参数需要传入文本类型的内容。了解不同类型的消息内容格式、使用限制，可参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          label:
+            en_US: content
+            ja_JP: content
+            pt_BR: content
+            zh_Hans: 消息内容
+          llm_description: 消息内容，JSON 结构序列化后的字符串。该参数的取值与 msg_type 对应，例如 msg_type 取值为
+            text，则该参数需要传入文本类型的内容。了解不同类型的消息内容格式、使用限制，可参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          max: null
+          min: null
+          name: content
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          content: ''
+          msg_type: ''
+          receive_id: ''
+          receive_id_type: ''
+        plugin_id: langgenius/feishu_message
+        plugin_unique_identifier: langgenius/feishu_message:0.0.1@f826c248b7e1cfb5a93e9c4ac526275a633997130f47d65e02dc40d8ae584b3c
+        provider_icon: ''
+        provider_id: langgenius/feishu_message/feishu_message
+        provider_name: langgenius/feishu_message/feishu_message
+        provider_type: builtin
+        selected: false
+        title: Send Bot Message
+        tool_configurations:
+          msg_type:
+            type: constant
+            value: interactive
+          receive_id_type:
+            type: constant
+            value: email
+        tool_description: Send bot message
+        tool_label: Send Bot Message
+        tool_name: send_bot_message
+        tool_node_version: '2'
+        tool_parameters:
+          content:
+            type: mixed
+            value: '{{#1772619737251.content#}}'
+          receive_id:
+            type: mixed
+            value: '{{#1772619737251.email#}}'
+        type: tool
+      height: 114
+      id: '1772619783917'
+      position:
+        x: 822.5876834690885
+        y: -26.68129541300746
+      positionAbsolute:
+        x: 822.5876834690885
+        y: -26.68129541300746
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import json\n\n\ndef _name_from_email(email: str) -> str:\n    local\
+          \ = email.split(\"@\")[0] if \"@\" in email else email\n    parts = local.replace(\"\
+          _\", \".\").replace(\"-\", \".\").split(\".\")\n    return \" \".join(p.capitalize()\
+          \ for p in parts if p)\n\n\ndef _build_card(header_title, body_line, page,\
+          \ actor, old_owner, new_owner, space):\n    elements = [\n        {\n  \
+          \          \"tag\": \"div\",\n            \"text\": {\n                \"\
+          tag\": \"lark_md\",\n                \"content\": f\"**[{page.get('title',\
+          \ 'Untitled')}]({page.get('url', '')})**\",\n            },\n        },\n\
+          \        {\n            \"tag\": \"div\",\n            \"text\": {\"tag\"\
+          : \"lark_md\", \"content\": body_line},\n        },\n    ]\n\n    if space:\n\
+          \        elements.append({\n            \"tag\": \"div\",\n            \"\
+          text\": {\"tag\": \"lark_md\", \"content\": f\"Space: {space}\"},\n    \
+          \    })\n\n    elements.append({\"tag\": \"hr\"})\n    elements.append({\n\
+          \        \"tag\": \"action\",\n        \"actions\": [\n            {\n \
+          \               \"tag\": \"button\",\n                \"text\": {\"tag\"\
+          : \"plain_text\", \"content\": \"View Page\"},\n                \"url\"\
+          : page.get(\"url\", \"\"),\n                \"type\": \"primary\",\n   \
+          \         }\n        ],\n    })\n    elements.append({\n        \"tag\"\
+          : \"note\",\n        \"elements\": [\n            {\"tag\": \"plain_text\"\
+          , \"content\": \"Confluence Notification\"},\n        ],\n    })\n\n   \
+          \ return {\n        \"config\": {\"wide_screen_mode\": True},\n        \"\
+          header\": {\n            \"title\": {\"tag\": \"plain_text\", \"content\"\
+          : header_title},\n            \"template\": \"orange\",\n        },\n  \
+          \      \"elements\": elements,\n    }\n\n\ndef main(payload: str) -> dict:\n\
+          \    data = json.loads(payload) if isinstance(payload, str) else payload\n\
+          \    if \"body\" in data and \"method\" in data:\n        data = data[\"\
+          body\"]\n\n    page = data.get(\"page\", {})\n    actor_email = data.get(\"\
+          actor\", {}).get(\"email\", \"Unknown\")\n    old_owner_email = data.get(\"\
+          owner\", {}).get(\"old\", {}).get(\"email\", \"Unknown\")\n    new_owner_email\
+          \ = data.get(\"owner\", {}).get(\"new\", {}).get(\"email\", \"Unknown\"\
+          )\n    actor = _name_from_email(actor_email)\n    old_owner = _name_from_email(old_owner_email)\n\
+          \    new_owner = _name_from_email(new_owner_email)\n\n    space_name = page.get(\"\
+          space_name\", \"\")\n    space_key = page.get(\"space_key\", \"\")\n   \
+          \ space = f\"{space_name} ({space_key})\" if space_name and space_key else\
+          \ space_name or space_key\n\n    card_new = _build_card(\n        header_title=\"\
+          \U0001F504 You are the new page owner\",\n        body_line=f\"**{actor}**\
+          \ assigned you as the owner\\nPrevious owner: {old_owner}\",\n        page=page,\
+          \ actor=actor, old_owner=old_owner, new_owner=new_owner, space=space,\n\
+          \    )\n\n    card_old = _build_card(\n        header_title=\"\U0001F504\
+          \ Page ownership transferred\",\n        body_line=f\"**{actor}** transferred\
+          \ ownership to **{new_owner}**\",\n        page=page, actor=actor, old_owner=old_owner,\
+          \ new_owner=new_owner, space=space,\n    )\n\n    return {\n        \"new_owner_email\"\
+          : new_owner_email,\n        \"new_owner_content\": json.dumps(card_new,\
+          \ ensure_ascii=False),\n        \"old_owner_email\": old_owner_email,\n\
+          \        \"old_owner_content\": json.dumps(card_old, ensure_ascii=False),\n\
+          \    }\n"
+        code_language: python3
+        outputs:
+          new_owner_content:
+            children: null
+            type: string
+          new_owner_email:
+            children: null
+            type: string
+          old_owner_content:
+            children: null
+            type: string
+          old_owner_email:
+            children: null
+            type: string
+        selected: false
+        title: change owner notification builder
+        type: code
+        variables:
+        - value_selector:
+          - '1772619676592'
+          - _webhook_raw
+          value_type: object
+          variable: payload
+      height: 52
+      id: '17726200308190'
+      position:
+        x: 415.948460433636
+        y: 232.07696159285126
+      positionAbsolute:
+        x: 415.948460433636
+        y: 232.07696159285126
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import json\n\n\ndef _name_from_email(email: str) -> str:\n    local\
+          \ = email.split(\"@\")[0] if \"@\" in email else email\n    parts = local.replace(\"\
+          _\", \".\").replace(\"-\", \".\").split(\".\")\n    return \" \".join(p.capitalize()\
+          \ for p in parts if p)\n\n\ndef main(payload: str) -> dict:\n    data =\
+          \ json.loads(payload) if isinstance(payload, str) else payload\n    if \"\
+          body\" in data and \"method\" in data:\n        data = data[\"body\"]\n\n\
+          \    page = data.get(\"page\", {})\n    comment = data.get(\"comment\",\
+          \ {})\n\n    owner_email = page.get(\"owner\", \"Unknown\")\n    actor_email\
+          \ = comment.get(\"author\", \"Unknown\")\n    if actor_email == owner_email:\n\
+          \        return {\"email\": \"\", \"content\": \"\"}\n    actor = _name_from_email(actor_email)\n\
+          \    body = comment.get(\"body\", \"\")\n    if len(body) > 200:\n     \
+          \   body = body[:200] + \"...\"\n    elements = [\n        {\n         \
+          \   \"tag\": \"div\",\n            \"text\": {\n                \"tag\"\
+          : \"lark_md\",\n                \"content\": f\"**[{page.get('title', 'Untitled')}]({page.get('url',\
+          \ '')})**\",\n            },\n        },\n        {\n            \"tag\"\
+          : \"div\",\n            \"text\": {\n                \"tag\": \"lark_md\"\
+          ,\n                \"content\": f\"Comment by **{actor}**\",\n         \
+          \   },\n        },\n    ]\n\n    if body:\n        elements.append({\n \
+          \           \"tag\": \"div\",\n            \"text\": {\"tag\": \"lark_md\"\
+          , \"content\": f\"> {body}\"},\n        })\n\n    elements.append({\"tag\"\
+          : \"hr\"})\n\n    actions = []\n    if page.get(\"url\"):\n        actions.append({\n\
+          \            \"tag\": \"button\",\n            \"text\": {\"tag\": \"plain_text\"\
+          , \"content\": \"View Page\"},\n            \"url\": page[\"url\"],\n  \
+          \          \"type\": \"primary\",\n        })\n    if comment.get(\"url\"\
+          ):\n        actions.append({\n            \"tag\": \"button\",\n       \
+          \     \"text\": {\"tag\": \"plain_text\", \"content\": \"View Comment\"\
+          },\n            \"url\": comment[\"url\"],\n            \"type\": \"default\"\
+          ,\n        })\n    if actions:\n        elements.append({\"tag\": \"action\"\
+          , \"actions\": actions})\n\n    elements.append({\n        \"tag\": \"note\"\
+          ,\n        \"elements\": [\n            {\"tag\": \"plain_text\", \"content\"\
+          : \"Confluence Notification\"},\n        ],\n    })\n\n    card = {\n  \
+          \      \"config\": {\"wide_screen_mode\": True},\n        \"header\": {\n\
+          \            \"title\": {\"tag\": \"plain_text\", \"content\": \"\U0001F4AC\
+          \ Confluence Comment\"},\n            \"template\": \"green\",\n       \
+          \ },\n        \"elements\": elements,\n    }\n\n    return {\n        \"\
+          email\": owner_email,\n        \"content\": json.dumps(card, ensure_ascii=False),\n\
+          \    }\n"
+        code_language: python3
+        outputs:
+          content:
+            children: null
+            type: string
+          email:
+            children: null
+            type: string
+        selected: false
+        title: comment notification builder
+        type: code
+        variables:
+        - value_selector:
+          - '1772619676592'
+          - _webhook_raw
+          value_type: object
+          variable: payload
+      height: 52
+      id: '17726200324410'
+      position:
+        x: 415.948460433636
+        y: 466.03661471148655
+      positionAbsolute:
+        x: 415.948460433636
+        y: 466.03661471148655
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import json\n\n\ndef _name_from_email(email: str) -> str:\n    local\
+          \ = email.split(\"@\")[0] if \"@\" in email else email\n    parts = local.replace(\"\
+          _\", \".\").replace(\"-\", \".\").split(\".\")\n    return \" \".join(p.capitalize()\
+          \ for p in parts if p)\n\n\ndef main(payload: str) -> dict:\n    data =\
+          \ json.loads(payload) if isinstance(payload, str) else payload\n    if \"\
+          body\" in data and \"method\" in data:\n        data = data[\"body\"]\n\n\
+          \    page = data.get(\"page\", {})\n    actor_email = data.get(\"actor\"\
+          , {}).get(\"email\", \"Unknown\")\n    owner_email = data.get(\"owner\"\
+          , {}).get(\"email\", \"\")\n    if actor_email == owner_email:\n       \
+          \ return {\"email\": \"\", \"content\": \"\"}\n    actor = _name_from_email(actor_email)\n\
+          \    owner = _name_from_email(owner_email) if owner_email else \"\"\n  \
+          \  elements = [\n        {\n            \"tag\": \"div\",\n            \"\
+          text\": {\n                \"tag\": \"lark_md\",\n                \"content\"\
+          : f\"**[{page.get('title', 'Untitled')}]({page.get('url', '')})**\",\n \
+          \           },\n        },\n        {\n            \"tag\": \"div\",\n \
+          \           \"text\": {\n                \"tag\": \"lark_md\",\n       \
+          \         \"content\": f\"Edited by **{actor}**\" + (f\"  ·  Owner: {owner}\"\
+          \ if owner else \"\"),\n            },\n        },\n        {\"tag\": \"\
+          hr\"},\n        {\n            \"tag\": \"action\",\n            \"actions\"\
+          : [\n                {\n                    \"tag\": \"button\",\n     \
+          \               \"text\": {\"tag\": \"plain_text\", \"content\": \"View\
+          \ Page\"},\n                    \"url\": page.get(\"url\", \"\"),\n    \
+          \                \"type\": \"primary\",\n                }\n           \
+          \ ],\n        },\n        {\n            \"tag\": \"note\",\n          \
+          \  \"elements\": [\n                {\"tag\": \"plain_text\", \"content\"\
+          : \"Confluence Notification\"},\n            ],\n        },\n    ]\n\n \
+          \   card = {\n        \"config\": {\"wide_screen_mode\": True},\n      \
+          \  \"header\": {\n            \"title\": {\"tag\": \"plain_text\", \"content\"\
+          : \"✏️ Confluence Page Edited\"},\n            \"template\": \"turquoise\"\
+          ,\n        },\n        \"elements\": elements,\n    }\n\n    return {\n\
+          \        \"email\": owner_email,\n        \"content\": json.dumps(card,\
+          \ ensure_ascii=False),\n    }\n"
+        code_language: python3
+        outputs:
+          content:
+            children: null
+            type: string
+          email:
+            children: null
+            type: string
+        selected: false
+        title: edit notification builder
+        type: code
+        variables:
+        - value_selector:
+          - '1772619676592'
+          - _webhook_raw
+          value_type: object
+          variable: payload
+      height: 52
+      id: '17726200353670'
+      position:
+        x: 415.948460433636
+        y: 679.8917976706151
+      positionAbsolute:
+        x: 415.948460433636
+        y: 679.8917976706151
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            ja_JP: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            pt_BR: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            zh_Hans: 消息接收者的 ID，ID 类型与查询参数 receive_id_type 的取值一致。
+          label:
+            en_US: receive_id
+            ja_JP: receive_id
+            pt_BR: receive_id
+            zh_Hans: 消息接收者的 ID
+          llm_description: 消息接收者的 ID，ID 类型与查询参数 receive_id_type 的取值一致。
+          max: null
+          min: null
+          name: receive_id
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            ja_JP: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            pt_BR: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            zh_Hans: 消息接收者的 ID 类型，可选值有 open_id、union_id、user_id、email、chat_id，默认值为
+              open_id。
+          label:
+            en_US: receive_id_type
+            ja_JP: receive_id_type
+            pt_BR: receive_id_type
+            zh_Hans: 消息接收者的 ID 类型
+          llm_description: 消息接收者的 ID 类型，可选值有 open_id、union_id、user_id、email、chat_id，默认值为
+            open_id。
+          max: null
+          min: null
+          name: receive_id_type
+          options:
+          - icon: ''
+            label:
+              en_US: open_id
+              ja_JP: open_id
+              pt_BR: open_id
+              zh_Hans: open_id
+            value: open_id
+          - icon: ''
+            label:
+              en_US: union_id
+              ja_JP: union_id
+              pt_BR: union_id
+              zh_Hans: union_id
+            value: union_id
+          - icon: ''
+            label:
+              en_US: user_id
+              ja_JP: user_id
+              pt_BR: user_id
+              zh_Hans: user_id
+            value: user_id
+          - icon: ''
+            label:
+              en_US: email
+              ja_JP: email
+              pt_BR: email
+              zh_Hans: email
+            value: email
+          - icon: ''
+            label:
+              en_US: chat_id
+              ja_JP: chat_id
+              pt_BR: chat_id
+              zh_Hans: chat_id
+            value: chat_id
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            ja_JP: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            pt_BR: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            zh_Hans: 消息类型。可选值有：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user、system。不同消息类型的详细介绍，参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          label:
+            en_US: msg_type
+            ja_JP: msg_type
+            pt_BR: msg_type
+            zh_Hans: 消息类型
+          llm_description: 消息类型。可选值有：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user、system。不同消息类型的详细介绍，参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          max: null
+          min: null
+          name: msg_type
+          options:
+          - icon: ''
+            label:
+              en_US: text
+              ja_JP: text
+              pt_BR: text
+              zh_Hans: 文本
+            value: text
+          - icon: ''
+            label:
+              en_US: interactive
+              ja_JP: interactive
+              pt_BR: interactive
+              zh_Hans: 卡片
+            value: interactive
+          - icon: ''
+            label:
+              en_US: post
+              ja_JP: post
+              pt_BR: post
+              zh_Hans: 富文本
+            value: post
+          - icon: ''
+            label:
+              en_US: image
+              ja_JP: image
+              pt_BR: image
+              zh_Hans: 图片
+            value: image
+          - icon: ''
+            label:
+              en_US: file
+              ja_JP: file
+              pt_BR: file
+              zh_Hans: 文件
+            value: file
+          - icon: ''
+            label:
+              en_US: audio
+              ja_JP: audio
+              pt_BR: audio
+              zh_Hans: 语音
+            value: audio
+          - icon: ''
+            label:
+              en_US: media
+              ja_JP: media
+              pt_BR: media
+              zh_Hans: 视频
+            value: media
+          - icon: ''
+            label:
+              en_US: sticker
+              ja_JP: sticker
+              pt_BR: sticker
+              zh_Hans: 表情包
+            value: sticker
+          - icon: ''
+            label:
+              en_US: share_chat
+              ja_JP: share_chat
+              pt_BR: share_chat
+              zh_Hans: 分享群名片
+            value: share_chat
+          - icon: ''
+            label:
+              en_US: share_user
+              ja_JP: share_user
+              pt_BR: share_user
+              zh_Hans: 分享个人名片
+            value: share_user
+          - icon: ''
+            label:
+              en_US: system
+              ja_JP: system
+              pt_BR: system
+              zh_Hans: 系统消息
+            value: system
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            ja_JP: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            pt_BR: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            zh_Hans: 消息内容，JSON 结构序列化后的字符串。该参数的取值与 msg_type 对应，例如 msg_type 取值为 text，则该参数需要传入文本类型的内容。了解不同类型的消息内容格式、使用限制，可参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          label:
+            en_US: content
+            ja_JP: content
+            pt_BR: content
+            zh_Hans: 消息内容
+          llm_description: 消息内容，JSON 结构序列化后的字符串。该参数的取值与 msg_type 对应，例如 msg_type 取值为
+            text，则该参数需要传入文本类型的内容。了解不同类型的消息内容格式、使用限制，可参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          max: null
+          min: null
+          name: content
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          content: ''
+          msg_type: ''
+          receive_id: ''
+          receive_id_type: ''
+        plugin_id: langgenius/feishu_message
+        plugin_unique_identifier: langgenius/feishu_message:0.0.1@f826c248b7e1cfb5a93e9c4ac526275a633997130f47d65e02dc40d8ae584b3c
+        provider_icon: ''
+        provider_id: langgenius/feishu_message/feishu_message
+        provider_name: langgenius/feishu_message/feishu_message
+        provider_type: builtin
+        selected: false
+        title: New Owner
+        tool_configurations:
+          msg_type:
+            type: constant
+            value: interactive
+          receive_id_type:
+            type: constant
+            value: email
+        tool_description: Send bot message
+        tool_label: Send Bot Message
+        tool_name: send_bot_message
+        tool_node_version: '2'
+        tool_parameters:
+          content:
+            type: mixed
+            value: '{{#17726200308190.new_owner_content#}}'
+          receive_id:
+            type: mixed
+            value: '{{#17726200308190.new_owner_email#}}'
+        type: tool
+      height: 114
+      id: '17726200387770'
+      position:
+        x: 822.5876834690885
+        y: 147.16656654608136
+      positionAbsolute:
+        x: 822.5876834690885
+        y: 147.16656654608136
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            ja_JP: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            pt_BR: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            zh_Hans: 消息接收者的 ID，ID 类型与查询参数 receive_id_type 的取值一致。
+          label:
+            en_US: receive_id
+            ja_JP: receive_id
+            pt_BR: receive_id
+            zh_Hans: 消息接收者的 ID
+          llm_description: 消息接收者的 ID，ID 类型与查询参数 receive_id_type 的取值一致。
+          max: null
+          min: null
+          name: receive_id
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            ja_JP: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            pt_BR: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            zh_Hans: 消息接收者的 ID 类型，可选值有 open_id、union_id、user_id、email、chat_id，默认值为
+              open_id。
+          label:
+            en_US: receive_id_type
+            ja_JP: receive_id_type
+            pt_BR: receive_id_type
+            zh_Hans: 消息接收者的 ID 类型
+          llm_description: 消息接收者的 ID 类型，可选值有 open_id、union_id、user_id、email、chat_id，默认值为
+            open_id。
+          max: null
+          min: null
+          name: receive_id_type
+          options:
+          - icon: ''
+            label:
+              en_US: open_id
+              ja_JP: open_id
+              pt_BR: open_id
+              zh_Hans: open_id
+            value: open_id
+          - icon: ''
+            label:
+              en_US: union_id
+              ja_JP: union_id
+              pt_BR: union_id
+              zh_Hans: union_id
+            value: union_id
+          - icon: ''
+            label:
+              en_US: user_id
+              ja_JP: user_id
+              pt_BR: user_id
+              zh_Hans: user_id
+            value: user_id
+          - icon: ''
+            label:
+              en_US: email
+              ja_JP: email
+              pt_BR: email
+              zh_Hans: email
+            value: email
+          - icon: ''
+            label:
+              en_US: chat_id
+              ja_JP: chat_id
+              pt_BR: chat_id
+              zh_Hans: chat_id
+            value: chat_id
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            ja_JP: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            pt_BR: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            zh_Hans: 消息类型。可选值有：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user、system。不同消息类型的详细介绍，参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          label:
+            en_US: msg_type
+            ja_JP: msg_type
+            pt_BR: msg_type
+            zh_Hans: 消息类型
+          llm_description: 消息类型。可选值有：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user、system。不同消息类型的详细介绍，参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          max: null
+          min: null
+          name: msg_type
+          options:
+          - icon: ''
+            label:
+              en_US: text
+              ja_JP: text
+              pt_BR: text
+              zh_Hans: 文本
+            value: text
+          - icon: ''
+            label:
+              en_US: interactive
+              ja_JP: interactive
+              pt_BR: interactive
+              zh_Hans: 卡片
+            value: interactive
+          - icon: ''
+            label:
+              en_US: post
+              ja_JP: post
+              pt_BR: post
+              zh_Hans: 富文本
+            value: post
+          - icon: ''
+            label:
+              en_US: image
+              ja_JP: image
+              pt_BR: image
+              zh_Hans: 图片
+            value: image
+          - icon: ''
+            label:
+              en_US: file
+              ja_JP: file
+              pt_BR: file
+              zh_Hans: 文件
+            value: file
+          - icon: ''
+            label:
+              en_US: audio
+              ja_JP: audio
+              pt_BR: audio
+              zh_Hans: 语音
+            value: audio
+          - icon: ''
+            label:
+              en_US: media
+              ja_JP: media
+              pt_BR: media
+              zh_Hans: 视频
+            value: media
+          - icon: ''
+            label:
+              en_US: sticker
+              ja_JP: sticker
+              pt_BR: sticker
+              zh_Hans: 表情包
+            value: sticker
+          - icon: ''
+            label:
+              en_US: share_chat
+              ja_JP: share_chat
+              pt_BR: share_chat
+              zh_Hans: 分享群名片
+            value: share_chat
+          - icon: ''
+            label:
+              en_US: share_user
+              ja_JP: share_user
+              pt_BR: share_user
+              zh_Hans: 分享个人名片
+            value: share_user
+          - icon: ''
+            label:
+              en_US: system
+              ja_JP: system
+              pt_BR: system
+              zh_Hans: 系统消息
+            value: system
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            ja_JP: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            pt_BR: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            zh_Hans: 消息内容，JSON 结构序列化后的字符串。该参数的取值与 msg_type 对应，例如 msg_type 取值为 text，则该参数需要传入文本类型的内容。了解不同类型的消息内容格式、使用限制，可参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          label:
+            en_US: content
+            ja_JP: content
+            pt_BR: content
+            zh_Hans: 消息内容
+          llm_description: 消息内容，JSON 结构序列化后的字符串。该参数的取值与 msg_type 对应，例如 msg_type 取值为
+            text，则该参数需要传入文本类型的内容。了解不同类型的消息内容格式、使用限制，可参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          max: null
+          min: null
+          name: content
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          content: ''
+          msg_type: ''
+          receive_id: ''
+          receive_id_type: ''
+        plugin_id: langgenius/feishu_message
+        plugin_unique_identifier: langgenius/feishu_message:0.0.1@f826c248b7e1cfb5a93e9c4ac526275a633997130f47d65e02dc40d8ae584b3c
+        provider_icon: ''
+        provider_id: langgenius/feishu_message/feishu_message
+        provider_name: langgenius/feishu_message/feishu_message
+        provider_type: builtin
+        selected: false
+        title: You have a comment
+        tool_configurations:
+          msg_type:
+            type: constant
+            value: interactive
+          receive_id_type:
+            type: constant
+            value: email
+        tool_description: Send bot message
+        tool_label: Send Bot Message
+        tool_name: send_bot_message
+        tool_node_version: '2'
+        tool_parameters:
+          content:
+            type: mixed
+            value: '{{#17726200324410.content#}}'
+          receive_id:
+            type: mixed
+            value: '{{#17726200324410.email#}}'
+        type: tool
+      height: 114
+      id: '17726200410700'
+      position:
+        x: 1222.0578141410467
+        y: 478.6455045149743
+      positionAbsolute:
+        x: 1222.0578141410467
+        y: 478.6455045149743
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            ja_JP: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            pt_BR: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            zh_Hans: 消息接收者的 ID，ID 类型与查询参数 receive_id_type 的取值一致。
+          label:
+            en_US: receive_id
+            ja_JP: receive_id
+            pt_BR: receive_id
+            zh_Hans: 消息接收者的 ID
+          llm_description: 消息接收者的 ID，ID 类型与查询参数 receive_id_type 的取值一致。
+          max: null
+          min: null
+          name: receive_id
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            ja_JP: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            pt_BR: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            zh_Hans: 消息接收者的 ID 类型，可选值有 open_id、union_id、user_id、email、chat_id，默认值为
+              open_id。
+          label:
+            en_US: receive_id_type
+            ja_JP: receive_id_type
+            pt_BR: receive_id_type
+            zh_Hans: 消息接收者的 ID 类型
+          llm_description: 消息接收者的 ID 类型，可选值有 open_id、union_id、user_id、email、chat_id，默认值为
+            open_id。
+          max: null
+          min: null
+          name: receive_id_type
+          options:
+          - icon: ''
+            label:
+              en_US: open_id
+              ja_JP: open_id
+              pt_BR: open_id
+              zh_Hans: open_id
+            value: open_id
+          - icon: ''
+            label:
+              en_US: union_id
+              ja_JP: union_id
+              pt_BR: union_id
+              zh_Hans: union_id
+            value: union_id
+          - icon: ''
+            label:
+              en_US: user_id
+              ja_JP: user_id
+              pt_BR: user_id
+              zh_Hans: user_id
+            value: user_id
+          - icon: ''
+            label:
+              en_US: email
+              ja_JP: email
+              pt_BR: email
+              zh_Hans: email
+            value: email
+          - icon: ''
+            label:
+              en_US: chat_id
+              ja_JP: chat_id
+              pt_BR: chat_id
+              zh_Hans: chat_id
+            value: chat_id
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            ja_JP: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            pt_BR: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            zh_Hans: 消息类型。可选值有：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user、system。不同消息类型的详细介绍，参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          label:
+            en_US: msg_type
+            ja_JP: msg_type
+            pt_BR: msg_type
+            zh_Hans: 消息类型
+          llm_description: 消息类型。可选值有：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user、system。不同消息类型的详细介绍，参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          max: null
+          min: null
+          name: msg_type
+          options:
+          - icon: ''
+            label:
+              en_US: text
+              ja_JP: text
+              pt_BR: text
+              zh_Hans: 文本
+            value: text
+          - icon: ''
+            label:
+              en_US: interactive
+              ja_JP: interactive
+              pt_BR: interactive
+              zh_Hans: 卡片
+            value: interactive
+          - icon: ''
+            label:
+              en_US: post
+              ja_JP: post
+              pt_BR: post
+              zh_Hans: 富文本
+            value: post
+          - icon: ''
+            label:
+              en_US: image
+              ja_JP: image
+              pt_BR: image
+              zh_Hans: 图片
+            value: image
+          - icon: ''
+            label:
+              en_US: file
+              ja_JP: file
+              pt_BR: file
+              zh_Hans: 文件
+            value: file
+          - icon: ''
+            label:
+              en_US: audio
+              ja_JP: audio
+              pt_BR: audio
+              zh_Hans: 语音
+            value: audio
+          - icon: ''
+            label:
+              en_US: media
+              ja_JP: media
+              pt_BR: media
+              zh_Hans: 视频
+            value: media
+          - icon: ''
+            label:
+              en_US: sticker
+              ja_JP: sticker
+              pt_BR: sticker
+              zh_Hans: 表情包
+            value: sticker
+          - icon: ''
+            label:
+              en_US: share_chat
+              ja_JP: share_chat
+              pt_BR: share_chat
+              zh_Hans: 分享群名片
+            value: share_chat
+          - icon: ''
+            label:
+              en_US: share_user
+              ja_JP: share_user
+              pt_BR: share_user
+              zh_Hans: 分享个人名片
+            value: share_user
+          - icon: ''
+            label:
+              en_US: system
+              ja_JP: system
+              pt_BR: system
+              zh_Hans: 系统消息
+            value: system
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            ja_JP: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            pt_BR: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            zh_Hans: 消息内容，JSON 结构序列化后的字符串。该参数的取值与 msg_type 对应，例如 msg_type 取值为 text，则该参数需要传入文本类型的内容。了解不同类型的消息内容格式、使用限制，可参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          label:
+            en_US: content
+            ja_JP: content
+            pt_BR: content
+            zh_Hans: 消息内容
+          llm_description: 消息内容，JSON 结构序列化后的字符串。该参数的取值与 msg_type 对应，例如 msg_type 取值为
+            text，则该参数需要传入文本类型的内容。了解不同类型的消息内容格式、使用限制，可参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          max: null
+          min: null
+          name: content
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          content: ''
+          msg_type: ''
+          receive_id: ''
+          receive_id_type: ''
+        plugin_id: langgenius/feishu_message
+        plugin_unique_identifier: langgenius/feishu_message:0.0.1@f826c248b7e1cfb5a93e9c4ac526275a633997130f47d65e02dc40d8ae584b3c
+        provider_icon: ''
+        provider_id: langgenius/feishu_message/feishu_message
+        provider_name: langgenius/feishu_message/feishu_message
+        provider_type: builtin
+        selected: false
+        title: Edited!
+        tool_configurations:
+          msg_type:
+            type: constant
+            value: interactive
+          receive_id_type:
+            type: constant
+            value: email
+        tool_description: Send bot message
+        tool_label: Send Bot Message
+        tool_name: send_bot_message
+        tool_node_version: '2'
+        tool_parameters:
+          content:
+            type: mixed
+            value: '{{#17726200353670.content#}}'
+          receive_id:
+            type: mixed
+            value: '{{#17726200353670.email#}}'
+        type: tool
+      height: 114
+      id: '17726200447000'
+      position:
+        x: 1222.0578141410467
+        y: 679.8917976706151
+      positionAbsolute:
+        x: 1222.0578141410467
+        y: 679.8917976706151
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            ja_JP: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            pt_BR: The ID of the message receiver, the ID type is consistent with
+              the value of the query parameter receive_id_type.
+            zh_Hans: 消息接收者的 ID，ID 类型与查询参数 receive_id_type 的取值一致。
+          label:
+            en_US: receive_id
+            ja_JP: receive_id
+            pt_BR: receive_id
+            zh_Hans: 消息接收者的 ID
+          llm_description: 消息接收者的 ID，ID 类型与查询参数 receive_id_type 的取值一致。
+          max: null
+          min: null
+          name: receive_id
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            ja_JP: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            pt_BR: The ID type of the message receiver, optional values are open_id,
+              union_id, user_id, email, chat_id, with a default value of open_id.
+            zh_Hans: 消息接收者的 ID 类型，可选值有 open_id、union_id、user_id、email、chat_id，默认值为
+              open_id。
+          label:
+            en_US: receive_id_type
+            ja_JP: receive_id_type
+            pt_BR: receive_id_type
+            zh_Hans: 消息接收者的 ID 类型
+          llm_description: 消息接收者的 ID 类型，可选值有 open_id、union_id、user_id、email、chat_id，默认值为
+            open_id。
+          max: null
+          min: null
+          name: receive_id_type
+          options:
+          - icon: ''
+            label:
+              en_US: open_id
+              ja_JP: open_id
+              pt_BR: open_id
+              zh_Hans: open_id
+            value: open_id
+          - icon: ''
+            label:
+              en_US: union_id
+              ja_JP: union_id
+              pt_BR: union_id
+              zh_Hans: union_id
+            value: union_id
+          - icon: ''
+            label:
+              en_US: user_id
+              ja_JP: user_id
+              pt_BR: user_id
+              zh_Hans: user_id
+            value: user_id
+          - icon: ''
+            label:
+              en_US: email
+              ja_JP: email
+              pt_BR: email
+              zh_Hans: email
+            value: email
+          - icon: ''
+            label:
+              en_US: chat_id
+              ja_JP: chat_id
+              pt_BR: chat_id
+              zh_Hans: chat_id
+            value: chat_id
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            ja_JP: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            pt_BR: Message type. Optional values are text, post, image, file, audio,
+              media, sticker, interactive, share_chat, share_user, system. For detailed
+              introduction of different message types, refer to the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            zh_Hans: 消息类型。可选值有：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user、system。不同消息类型的详细介绍，参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          label:
+            en_US: msg_type
+            ja_JP: msg_type
+            pt_BR: msg_type
+            zh_Hans: 消息类型
+          llm_description: 消息类型。可选值有：text、post、image、file、audio、media、sticker、interactive、share_chat、share_user、system。不同消息类型的详细介绍，参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          max: null
+          min: null
+          name: msg_type
+          options:
+          - icon: ''
+            label:
+              en_US: text
+              ja_JP: text
+              pt_BR: text
+              zh_Hans: 文本
+            value: text
+          - icon: ''
+            label:
+              en_US: interactive
+              ja_JP: interactive
+              pt_BR: interactive
+              zh_Hans: 卡片
+            value: interactive
+          - icon: ''
+            label:
+              en_US: post
+              ja_JP: post
+              pt_BR: post
+              zh_Hans: 富文本
+            value: post
+          - icon: ''
+            label:
+              en_US: image
+              ja_JP: image
+              pt_BR: image
+              zh_Hans: 图片
+            value: image
+          - icon: ''
+            label:
+              en_US: file
+              ja_JP: file
+              pt_BR: file
+              zh_Hans: 文件
+            value: file
+          - icon: ''
+            label:
+              en_US: audio
+              ja_JP: audio
+              pt_BR: audio
+              zh_Hans: 语音
+            value: audio
+          - icon: ''
+            label:
+              en_US: media
+              ja_JP: media
+              pt_BR: media
+              zh_Hans: 视频
+            value: media
+          - icon: ''
+            label:
+              en_US: sticker
+              ja_JP: sticker
+              pt_BR: sticker
+              zh_Hans: 表情包
+            value: sticker
+          - icon: ''
+            label:
+              en_US: share_chat
+              ja_JP: share_chat
+              pt_BR: share_chat
+              zh_Hans: 分享群名片
+            value: share_chat
+          - icon: ''
+            label:
+              en_US: share_user
+              ja_JP: share_user
+              pt_BR: share_user
+              zh_Hans: 分享个人名片
+            value: share_user
+          - icon: ''
+            label:
+              en_US: system
+              ja_JP: system
+              pt_BR: system
+              zh_Hans: 系统消息
+            value: system
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: select
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            ja_JP: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            pt_BR: Message content, a JSON structure serialized string. The value
+              of this parameter corresponds to msg_type. For example, if msg_type
+              is text, this parameter needs to pass in text type content. To understand
+              the format and usage limitations of different message types, refer to
+              the message content(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json).
+            zh_Hans: 消息内容，JSON 结构序列化后的字符串。该参数的取值与 msg_type 对应，例如 msg_type 取值为 text，则该参数需要传入文本类型的内容。了解不同类型的消息内容格式、使用限制，可参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          label:
+            en_US: content
+            ja_JP: content
+            pt_BR: content
+            zh_Hans: 消息内容
+          llm_description: 消息内容，JSON 结构序列化后的字符串。该参数的取值与 msg_type 对应，例如 msg_type 取值为
+            text，则该参数需要传入文本类型的内容。了解不同类型的消息内容格式、使用限制，可参见发送消息内容(https://open.larkoffice.com/document/server-docs/im-v1/message-content-description/create_json)。
+          max: null
+          min: null
+          name: content
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          content: ''
+          msg_type: ''
+          receive_id: ''
+          receive_id_type: ''
+        plugin_id: langgenius/feishu_message
+        plugin_unique_identifier: langgenius/feishu_message:0.0.1@f826c248b7e1cfb5a93e9c4ac526275a633997130f47d65e02dc40d8ae584b3c
+        provider_icon: ''
+        provider_id: langgenius/feishu_message/feishu_message
+        provider_name: langgenius/feishu_message/feishu_message
+        provider_type: builtin
+        selected: false
+        title: Previous Owner
+        tool_configurations:
+          msg_type:
+            type: constant
+            value: interactive
+          receive_id_type:
+            type: constant
+            value: email
+        tool_description: Send bot message
+        tool_label: Send Bot Message
+        tool_name: send_bot_message
+        tool_node_version: '2'
+        tool_parameters:
+          content:
+            type: mixed
+            value: '{{#17726200308190.old_owner_content#}}'
+          receive_id:
+            type: mixed
+            value: '{{#17726200308190.old_owner_email#}}'
+        type: tool
+      height: 114
+      id: '17726212517840'
+      position:
+        x: 822.5876834690885
+        y: 291.481400783289
+      positionAbsolute:
+        x: 822.5876834690885
+        y: 291.481400783289
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import json\n\n\ndef main(payload: str) -> dict:\n    data = json.loads(payload)\
+          \ if isinstance(payload, str) else payload\n    if \"body\" in data and\
+          \ \"method\" in data:\n        data = data[\"body\"]\n    return {\"result\"\
+          : data.get(\"event_type\", \"unknown\")}\n"
+        code_language: python3
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: Event Type
+        type: code
+        variables:
+        - value_selector:
+          - '1772619676592'
+          - _webhook_raw
+          value_type: object
+          variable: payload
+      height: 52
+      id: '1772623538969'
+      position:
+        x: -283.8094624103105
+        y: 274.76289592873326
+      positionAbsolute:
+        x: -283.8094624103105
+        y: 274.76289592873326
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: 9bf7a052-d083-45a3-9775-a73d0765cc95
+            value: mention
+            varType: string
+            variable_selector:
+            - '1772623538969'
+            - result
+          id: 'true'
+          logical_operator: and
+        - case_id: 37db1000-0480-4d23-9ae8-4e36f2d51c82
+          conditions:
+          - comparison_operator: is
+            id: ddce5306-a2da-4c3a-9cad-89640d4ada9b
+            value: page_owner_changed
+            varType: string
+            variable_selector:
+            - '1772623538969'
+            - result
+          id: 37db1000-0480-4d23-9ae8-4e36f2d51c82
+          logical_operator: and
+        - case_id: d93d6e59-3db9-4b2b-ad43-63e08fd64953
+          conditions:
+          - comparison_operator: is
+            id: 2324a875-18a6-4f1d-8cf6-024420be5e27
+            value: comment
+            varType: string
+            variable_selector:
+            - '1772623538969'
+            - result
+          id: d93d6e59-3db9-4b2b-ad43-63e08fd64953
+          logical_operator: and
+        - case_id: 93e96e49-2ad4-482e-b50e-e3f9bc2740eb
+          conditions:
+          - comparison_operator: is
+            id: 3724a1ef-6953-4396-9a4a-6cdb4bb7a33a
+            value: page_edited
+            varType: string
+            variable_selector:
+            - '1772623538969'
+            - result
+          id: 93e96e49-2ad4-482e-b50e-e3f9bc2740eb
+          logical_operator: and
+        selected: false
+        title: IF/ELSE
+        type: if-else
+      height: 364
+      id: '1772623565085'
+      position:
+        x: 34.23473214183588
+        y: 274.76289592873326
+      positionAbsolute:
+        x: 34.23473214183588
+        y: 274.76289592873326
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: not empty
+            id: a7e8faef-3e94-48fc-bf1b-7a942ba607a4
+            value: ''
+            varType: string
+            variable_selector:
+            - '17726200353670'
+            - email
+          id: 'true'
+          logical_operator: and
+        selected: false
+        title: filter edit their own doc
+        type: if-else
+      height: 140
+      id: '1772698447593'
+      position:
+        x: 822.5876834690885
+        y: 679.8917976706151
+      positionAbsolute:
+        x: 822.5876834690885
+        y: 679.8917976706151
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: not empty
+            id: 38650a15-470d-406b-9fb3-3465b53cd88f
+            value: ''
+            varType: string
+            variable_selector:
+            - '17726200324410'
+            - email
+          id: 'true'
+          logical_operator: and
+        selected: false
+        title: filter comment on their own doc
+        type: if-else
+      height: 140
+      id: '1772698477175'
+      position:
+        x: 822.5876834690885
+        y: 466.03661471148655
+      positionAbsolute:
+        x: 822.5876834690885
+        y: 466.03661471148655
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    viewport:
+      x: 6.443992460340496
+      y: 123.28775529908509
+      zoom: 1.198993994389913
+  rag_pipeline_variables: []

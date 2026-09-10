@@ -1,0 +1,512 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: Daily News for Slack Channel
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/slack:0.0.4@8eccd2e5360bd287d887738750ae420d57d0c26d1e1a1ced4f59963005f1c163
+    version: null
+kind: app
+version: 0.5.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: trigger-schedule
+        targetType: agent
+      id: 1764038608690-source-1764038612173-target
+      source: '1764038608690'
+      sourceHandle: source
+      target: '1764038612173'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: agent
+        targetType: tool
+      id: 1764038612173-source-1764038622863-target
+      source: '1764038612173'
+      sourceHandle: source
+      target: '1764038622863'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        config:
+          frequency: daily
+          mode: visual
+          timezone: UTC
+          visual_config:
+            monthly_days:
+            - 1
+            on_minute: 0
+            time: 12:00 AM
+            weekdays:
+            - sun
+        cron_expression: 0 9 * * *
+        mode: cron
+        selected: false
+        timezone: America/New_York
+        title: Schedule Trigger
+        type: trigger-schedule
+      height: 130
+      id: '1764038608690'
+      position:
+        x: 80
+        y: 282
+      positionAbsolute:
+        x: 80
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        agent_parameters:
+          instruction:
+            type: constant
+            value: 'You have access to two tools:
+
+
+              Yahoo News — use it to search and retrieve the latest news.
+
+              Current Time — use it to obtain the current date and time.
+
+
+
+              Rules:
+
+
+              Always call Current Time before evaluating whether news is “recent”,
+              “today”, “this week”, etc.
+
+              Use Yahoo News only when the user explicitly requests news, updates,
+              or information about current events.
+
+              Keep responses concise, factual, and based on retrieved data.
+
+              Cite the tool output clearly when presenting news.
+
+              '
+          model:
+            type: constant
+            value:
+              completion_params: {}
+              mode: chat
+              model: claude-opus-4-20250514
+              model_type: llm
+              provider: langgenius/anthropic/anthropic
+              type: model-selector
+          query:
+            type: constant
+            value: What’s the latest on NVDA and TSLA today?
+          tools:
+            type: constant
+            value:
+            - enabled: true
+              extra:
+                description: A tool for get news about a ticker from Yahoo Finance.
+              parameters:
+                symbol:
+                  auto: 1
+                  value: null
+              provider_name: langgenius/yahoo/yahoo
+              provider_show_name: langgenius/yahoo/yahoo
+              schemas:
+              - auto_generate: null
+                default: null
+                form: llm
+                human_description:
+                  en_US: The ticker symbol of the company you want to search.
+                  ja_JP: The ticker symbol of the company you want to search.
+                  pt_BR: O símbolo do ticker da empresa que você deseja pesquisar.
+                  zh_Hans: 你想要搜索的公司的股票代码。
+                label:
+                  en_US: Ticker symbol
+                  ja_JP: Ticker symbol
+                  pt_BR: Símbolo do ticker
+                  zh_Hans: 股票代码
+                llm_description: The ticker symbol of the company you want to search.
+                max: null
+                min: null
+                name: symbol
+                options: []
+                placeholder: null
+                precision: null
+                required: true
+                scope: null
+                template: null
+                type: string
+              settings: {}
+              tool_description: A tool for get news about a ticker from Yahoo Finance.
+              tool_label: News
+              tool_name: yahoo_finance_news
+              type: builtin
+            - enabled: true
+              extra:
+                description: A tool for getting the current time.
+              parameters: {}
+              provider_name: time
+              provider_show_name: time
+              schemas:
+              - auto_generate: null
+                default: '%Y-%m-%d %H:%M:%S'
+                form: form
+                human_description:
+                  en_US: Time format in strftime standard.
+                  ja_JP: Time format in strftime standard.
+                  pt_BR: Time format in strftime standard.
+                  zh_Hans: strftime 标准的时间格式。
+                label:
+                  en_US: Format
+                  ja_JP: Format
+                  pt_BR: Format
+                  zh_Hans: 格式
+                llm_description: null
+                max: null
+                min: null
+                name: format
+                options: []
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: string
+              - auto_generate: null
+                default: UTC
+                form: form
+                human_description:
+                  en_US: Timezone
+                  ja_JP: Timezone
+                  pt_BR: Timezone
+                  zh_Hans: 时区
+                label:
+                  en_US: Timezone
+                  ja_JP: Timezone
+                  pt_BR: Timezone
+                  zh_Hans: 时区
+                llm_description: null
+                max: null
+                min: null
+                name: timezone
+                options:
+                - icon: null
+                  label:
+                    en_US: UTC
+                    ja_JP: UTC
+                    pt_BR: UTC
+                    zh_Hans: UTC
+                  value: UTC
+                - icon: null
+                  label:
+                    en_US: America/New_York
+                    ja_JP: America/New_York
+                    pt_BR: America/New_York
+                    zh_Hans: 美洲/纽约
+                  value: America/New_York
+                - icon: null
+                  label:
+                    en_US: America/Los_Angeles
+                    ja_JP: America/Los_Angeles
+                    pt_BR: America/Los_Angeles
+                    zh_Hans: 美洲/洛杉矶
+                  value: America/Los_Angeles
+                - icon: null
+                  label:
+                    en_US: America/Chicago
+                    ja_JP: America/Chicago
+                    pt_BR: America/Chicago
+                    zh_Hans: 美洲/芝加哥
+                  value: America/Chicago
+                - icon: null
+                  label:
+                    en_US: America/Sao_Paulo
+                    ja_JP: America/Sao_Paulo
+                    pt_BR: América/São Paulo
+                    zh_Hans: 美洲/圣保罗
+                  value: America/Sao_Paulo
+                - icon: null
+                  label:
+                    en_US: Asia/Shanghai
+                    ja_JP: Asia/Shanghai
+                    pt_BR: Asia/Shanghai
+                    zh_Hans: 亚洲/上海
+                  value: Asia/Shanghai
+                - icon: null
+                  label:
+                    en_US: Asia/Ho_Chi_Minh
+                    ja_JP: Asia/Ho_Chi_Minh
+                    pt_BR: Ásia/Ho Chi Minh
+                    zh_Hans: 亚洲/胡志明市
+                  value: Asia/Ho_Chi_Minh
+                - icon: null
+                  label:
+                    en_US: Asia/Tokyo
+                    ja_JP: Asia/Tokyo
+                    pt_BR: Asia/Tokyo
+                    zh_Hans: 亚洲/东京
+                  value: Asia/Tokyo
+                - icon: null
+                  label:
+                    en_US: Asia/Dubai
+                    ja_JP: Asia/Dubai
+                    pt_BR: Asia/Dubai
+                    zh_Hans: 亚洲/迪拜
+                  value: Asia/Dubai
+                - icon: null
+                  label:
+                    en_US: Asia/Kolkata
+                    ja_JP: Asia/Kolkata
+                    pt_BR: Asia/Kolkata
+                    zh_Hans: 亚洲/加尔各答
+                  value: Asia/Kolkata
+                - icon: null
+                  label:
+                    en_US: Asia/Seoul
+                    ja_JP: Asia/Seoul
+                    pt_BR: Asia/Seoul
+                    zh_Hans: 亚洲/首尔
+                  value: Asia/Seoul
+                - icon: null
+                  label:
+                    en_US: Asia/Singapore
+                    ja_JP: Asia/Singapore
+                    pt_BR: Asia/Singapore
+                    zh_Hans: 亚洲/新加坡
+                  value: Asia/Singapore
+                - icon: null
+                  label:
+                    en_US: Europe/London
+                    ja_JP: Europe/London
+                    pt_BR: Europe/London
+                    zh_Hans: 欧洲/伦敦
+                  value: Europe/London
+                - icon: null
+                  label:
+                    en_US: Europe/Berlin
+                    ja_JP: Europe/Berlin
+                    pt_BR: Europe/Berlin
+                    zh_Hans: 欧洲/柏林
+                  value: Europe/Berlin
+                - icon: null
+                  label:
+                    en_US: Europe/Moscow
+                    ja_JP: Europe/Moscow
+                    pt_BR: Europe/Moscow
+                    zh_Hans: 欧洲/莫斯科
+                  value: Europe/Moscow
+                - icon: null
+                  label:
+                    en_US: Australia/Sydney
+                    ja_JP: Australia/Sydney
+                    pt_BR: Australia/Sydney
+                    zh_Hans: 澳大利亚/悉尼
+                  value: Australia/Sydney
+                - icon: null
+                  label:
+                    en_US: Pacific/Auckland
+                    ja_JP: Pacific/Auckland
+                    pt_BR: Pacific/Auckland
+                    zh_Hans: 太平洋/奥克兰
+                  value: Pacific/Auckland
+                - icon: null
+                  label:
+                    en_US: Africa/Cairo
+                    ja_JP: Africa/Cairo
+                    pt_BR: Africa/Cairo
+                    zh_Hans: 非洲/开罗
+                  value: Africa/Cairo
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: select
+              settings:
+                format:
+                  value:
+                    type: mixed
+                    value: '%Y-%m-%d %H:%M:%S'
+                timezone:
+                  value:
+                    type: constant
+                    value: UTC
+              tool_description: A tool for getting the current time.
+              tool_label: Current Time
+              tool_name: current_time
+              type: builtin
+        agent_strategy_label: FunctionCalling
+        agent_strategy_name: function_calling
+        agent_strategy_provider_name: langgenius/agent/agent
+        meta:
+          minimum_dify_version: 1.7.0
+          version: 0.0.2
+        output_schema: {}
+        plugin_unique_identifier: langgenius/agent:0.0.24@0274c08e62efaa28f6327e7bdba655e16559ec28d4f41f2fa3ef553e6327c0f6
+        selected: false
+        title: Agent
+        tool_node_version: '2'
+        type: agent
+      height: 188
+      id: '1764038612173'
+      position:
+        x: 382
+        y: 282
+      positionAbsolute:
+        x: 382
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: Slack Incoming Webhook url
+            ja_JP: Slack Incoming Webhook url
+            pt_BR: Slack Incoming Webhook url
+            zh_Hans: Slack 入站 Webhook 的 url
+          label:
+            en_US: Slack Incoming Webhook url
+            ja_JP: Slack Incoming Webhook url
+            pt_BR: Slack Incoming Webhook url
+            zh_Hans: Slack 入站 Webhook 的 url
+          llm_description: ''
+          max: null
+          min: null
+          name: webhook_url
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Content to sent to the channel or person.
+            ja_JP: Content to sent to the channel or person.
+            pt_BR: Content to sent to the channel or person.
+            zh_Hans: 消息内容文本
+          label:
+            en_US: content
+            ja_JP: content
+            pt_BR: content
+            zh_Hans: 消息内容
+          llm_description: Content of the message
+          max: null
+          min: null
+          name: content
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          content: ''
+          webhook_url: ''
+        plugin_id: langgenius/slack
+        plugin_unique_identifier: langgenius/slack:0.0.4@8eccd2e5360bd287d887738750ae420d57d0c26d1e1a1ced4f59963005f1c163
+        provider_icon: https://cloud.dify.ai/console/api/workspaces/current/plugin/icon?tenant_id=945b4365-9d99-48c1-8c47-90593fe8b9c9&filename=96f032a223a6e7db0335b001fe32b4c790bc2c0135adf67acf831b3b588d18bc.svg
+        provider_id: langgenius/slack/slack
+        provider_name: langgenius/slack/slack
+        provider_type: builtin
+        selected: false
+        title: Incoming Webhook to send message
+        tool_configurations:
+          webhook_url:
+            type: mixed
+            value: ''
+        tool_description: Sending a message on Slack via the Incoming Webhook
+        tool_label: Incoming Webhook to send message
+        tool_name: slack_webhook
+        tool_node_version: '2'
+        tool_parameters:
+          content:
+            type: mixed
+            value: '{{#1764038612173.text#}}'
+        type: tool
+      height: 88
+      id: '1764038622863'
+      position:
+        x: 684
+        y: 282
+      positionAbsolute:
+        x: 684
+        y: 282
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    viewport:
+      x: 152
+      y: 5
+      zoom: 1
+  rag_pipeline_variables: []

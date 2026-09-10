@@ -1,0 +1,1308 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: demo
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/slack:0.0.4@8eccd2e5360bd287d887738750ae420d57d0c26d1e1a1ced4f59963005f1c163
+    version: null
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai:0.2.7@9031bbf9b37d9f6341a20c78a8bd18d686afd3ff627545496c3557705419d084
+    version: null
+kind: app
+version: 0.5.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: agent
+        targetType: tool
+      id: 1764053709603-source-1764046017344-target
+      source: '1764053709603'
+      sourceHandle: source
+      target: '1764046017344'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: llm
+      id: 1764053982588-1-1764054242946-target
+      source: '1764053982588'
+      sourceHandle: '1'
+      target: '1764054242946'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: agent
+      id: 1764053982588-2-1764053709603-target
+      source: '1764053982588'
+      sourceHandle: '2'
+      target: '1764053709603'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: tool
+      id: 1764054242946-source-1764054345840-target
+      source: '1764054242946'
+      sourceHandle: source
+      target: '1764054345840'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: llm
+      id: 1764053982588-1764054133310-1764054445667-target
+      source: '1764053982588'
+      sourceHandle: '1764054133310'
+      target: '1764054445667'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: tool
+      id: 1764054445667-source-1764054395027-target
+      source: '1764054445667'
+      sourceHandle: source
+      target: '1764054395027'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: trigger-plugin
+        targetType: question-classifier
+      id: 1764055009482-source-1764053982588-target
+      source: '1764055009482'
+      sourceHandle: source
+      target: '1764053982588'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: Slack Incoming Webhook url
+            ja_JP: Slack Incoming Webhook url
+            pt_BR: Slack Incoming Webhook url
+            zh_Hans: Slack 入站 Webhook 的 url
+          label:
+            en_US: Slack Incoming Webhook url
+            ja_JP: Slack Incoming Webhook url
+            pt_BR: Slack Incoming Webhook url
+            zh_Hans: Slack 入站 Webhook 的 url
+          llm_description: ''
+          max: null
+          min: null
+          name: webhook_url
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Content to sent to the channel or person.
+            ja_JP: Content to sent to the channel or person.
+            pt_BR: Content to sent to the channel or person.
+            zh_Hans: 消息内容文本
+          label:
+            en_US: content
+            ja_JP: content
+            pt_BR: content
+            zh_Hans: 消息内容
+          llm_description: Content of the message
+          max: null
+          min: null
+          name: content
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          content: ''
+          webhook_url: ''
+        plugin_id: langgenius/slack
+        plugin_unique_identifier: langgenius/slack:0.0.4@8eccd2e5360bd287d887738750ae420d57d0c26d1e1a1ced4f59963005f1c163
+        provider_icon: https://cloud.dify.ai/console/api/workspaces/current/plugin/icon?tenant_id=945b4365-9d99-48c1-8c47-90593fe8b9c9&filename=96f032a223a6e7db0335b001fe32b4c790bc2c0135adf67acf831b3b588d18bc.svg
+        provider_id: langgenius/slack/slack
+        provider_name: langgenius/slack/slack
+        provider_type: builtin
+        selected: false
+        title: Incoming Webhook to send message
+        tool_configurations:
+          webhook_url:
+            type: mixed
+            value: ''
+        tool_description: Sending a message on Slack via the Incoming Webhook
+        tool_label: Incoming Webhook to send message
+        tool_name: slack_webhook
+        tool_node_version: '2'
+        tool_parameters:
+          content:
+            type: mixed
+            value: '{{#1764053709603.text#}}'
+        type: tool
+      height: 88
+      id: '1764046017344'
+      position:
+        x: 1046
+        y: 219.42857142857144
+      positionAbsolute:
+        x: 1046
+        y: 219.42857142857144
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        agent_parameters:
+          instruction:
+            type: constant
+            value: "You have access to two tools:\n\n1. Yahoo News — use it to search\
+              \ and retrieve the latest news.\n2. Current Time — use it to obtain\
+              \ the current date and time.\n\nRules:\n\n1. When evaluating recency\
+              \ (“recent”, “today”, “this week”, “latest news”, etc.), you must always\
+              \ call the Current Time tool first before determining whether a Yahoo\
+              \ News search is required.\n\n2. Use Yahoo News ONLY when the user explicitly\
+              \ asks for:\n   - news\n   - updates\n   - recent events\n   - what\
+              \ happened today / this week / recently\n   - or any request that clearly\
+              \ refers to current events.\n\n3. Your responses must be concise, factual,\
+              \ and directly based on retrieved tool outputs.\n\n4. When presenting\
+              \ news:\n   - Always cite the tool output clearly.\n   - If the tool\
+              \ response includes valid URLs or article links, include those links\
+              \ in your final answer.\n   - If no links are provided, do NOT fabricate\
+              \ or add any links.\n\n5. If the user’s request is NOT about news or\
+              \ current events, do not call Yahoo News. Provide a normal conversational\
+              \ response.\n\nTone:\n- Clear, natural, and helpful.\n- Do not over-explain\
+              \ your internal reasoning."
+          model:
+            type: constant
+            value:
+              completion_params: {}
+              mode: chat
+              model: gpt-5.1
+              model_type: llm
+              provider: langgenius/openai/openai
+              type: model-selector
+          query:
+            type: constant
+            value: '{{#1764055009482.event_body.text#}}'
+          tools:
+            type: constant
+            value:
+            - enabled: true
+              extra:
+                description: A tool for performing a Google SERP search and extracting
+                  snippets and webpages.Input should be a search query.
+              parameters:
+                country_code:
+                  auto: 1
+                  value: null
+                language_code:
+                  auto: 1
+                  value: null
+                query:
+                  auto: 1
+                  value: null
+              provider_name: langgenius/google/google
+              provider_show_name: langgenius/google/google
+              schemas:
+              - auto_generate: null
+                default: null
+                form: llm
+                human_description:
+                  en_US: used for searching
+                  ja_JP: used for searching
+                  pt_BR: used for searching
+                  zh_Hans: 用于搜索网页内容
+                label:
+                  en_US: Query string
+                  ja_JP: Query string
+                  pt_BR: Query string
+                  zh_Hans: 查询语句
+                llm_description: keywords for searching
+                max: null
+                min: null
+                name: query
+                options: []
+                placeholder: null
+                precision: null
+                required: true
+                scope: null
+                template: null
+                type: string
+              - auto_generate: null
+                default: null
+                form: llm
+                human_description:
+                  en_US: Parameter defines the language to use for the Google search.
+                    It's a two-letter language code. (e.g., en for English, es for
+                    Spanish, or fr for French). Head to https://serpapi.com/google-languages
+                    for a full list of supported Google languages.
+                  ja_JP: Parameter defines the language to use for the Google search.
+                    It's a two-letter language code. (e.g., en for English, es for
+                    Spanish, or fr for French). Head to https://serpapi.com/google-languages
+                    for a full list of supported Google languages.
+                  pt_BR: Parameter defines the language to use for the Google search.
+                    It's a two-letter language code. (e.g., en for English, es for
+                    Spanish, or fr for French). Head to https://serpapi.com/google-languages
+                    for a full list of supported Google languages.
+                  zh_Hans: 此参数定义用于 Google 搜索的语言。它是一个两字母的语言代码。 (例如，en 代表英语，es 代表西班牙语，fr
+                    代表法语)。请前往 https://serpapi.com/google-languages 查看完整的支持 Google
+                    语言列表。
+                label:
+                  en_US: Language code
+                  ja_JP: Language code
+                  pt_BR: Language code
+                  zh_Hans: 语言代码
+                llm_description: '(Optional) This parameter specifies the language
+                  used for Google searches. In most cases, you don''t need to explicitly
+                  specify this parameter. Some effective examples: zh-cn, en, ja.'
+                max: null
+                min: null
+                name: language_code
+                options: []
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: string
+              - auto_generate: null
+                default: null
+                form: llm
+                human_description:
+                  en_US: Parameter defines the country to use for the Google search.
+                    It's a two-letter country code. (e.g., us for the United States,
+                    uk for United Kingdom, or fr for France). Head to the https://serpapi.com/google-countries
+                    for a full list of supported Google countries.
+                  ja_JP: Parameter defines the country to use for the Google search.
+                    It's a two-letter country code. (e.g., us for the United States,
+                    uk for United Kingdom, or fr for France). Head to the https://serpapi.com/google-countries
+                    for a full list of supported Google countries.
+                  pt_BR: Parameter defines the country to use for the Google search.
+                    It's a two-letter country code. (e.g., us for the United States,
+                    uk for United Kingdom, or fr for France). Head to the https://serpapi.com/google-countries
+                    for a full list of supported Google countries.
+                  zh_Hans: 此参数定义用于 Google 搜索的国家。它是一个两字母的国家代码。 (例如，us 代表美国，uk 代表英国，fr
+                    代表法国)。请前往 https://serpapi.com/google-countries 查看完整的支持 Google
+                    国家列表。
+                label:
+                  en_US: Country code
+                  ja_JP: Country code
+                  pt_BR: Country code
+                  zh_Hans: 国家代码
+                llm_description: '(Optional) This parameter defines the country used
+                  for Google search. In most cases, you don''t need to explicitly
+                  specify this parameter. Some effective examples: cn, us, uk, jp.'
+                max: null
+                min: null
+                name: country_code
+                options: []
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: string
+              - auto_generate: null
+                default: false
+                form: form
+                human_description:
+                  en_US: Default is False. The node behaves differently in workflow/chatflow
+                    calls versus when used as a tool within an Agent, resulting in
+                    different return formats. In Agent mode, the context template
+                    is optimized to clearly highlight key information. Make sure to
+                    enable this parameter when using the Agent mode.
+                  ja_JP: Default is False. The node behaves differently in workflow/chatflow
+                    calls versus when used as a tool within an Agent, resulting in
+                    different return formats. In Agent mode, the context template
+                    is optimized to clearly highlight key information. Make sure to
+                    enable this parameter when using the Agent mode.
+                  pt_BR: Default is False. The node behaves differently in workflow/chatflow
+                    calls versus when used as a tool within an Agent, resulting in
+                    different return formats. In Agent mode, the context template
+                    is optimized to clearly highlight key information. Make sure to
+                    enable this parameter when using the Agent mode.
+                  zh_Hans: 默认为 False，直接在 workflow 或 chatflow 中调用还是在 Agent 中作为工具使用，两种模式触发不同的返回格式。在
+                    Agent 模式下，优化上下文模板，明确关键信息。 在 Agent 模式下请务必启动这个参数。
+                label:
+                  en_US: Used in Agent nodes
+                  ja_JP: Used in Agent nodes
+                  pt_BR: Used in Agent nodes
+                  zh_Hans: 在 Agent 节点中使用
+                llm_description: Default is False. The node behaves differently in
+                  workflow/chatflow calls versus when used as a tool within an Agent,
+                  resulting in different return formats. In Agent mode, the context
+                  template is optimized to clearly highlight key information. Make
+                  sure to enable this parameter when using the Agent mode.
+                max: null
+                min: null
+                name: as_agent_tool
+                options: []
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: boolean
+              settings:
+                as_agent_tool:
+                  value:
+                    type: constant
+                    value: false
+              tool_description: A tool for performing a Google SERP search and extracting
+                snippets and webpages.Input should be a search query.
+              tool_label: GoogleSearch
+              tool_name: google_search
+              type: builtin
+            - enabled: true
+              extra:
+                description: A tool for get news about a ticker from Yahoo Finance.
+              parameters:
+                symbol:
+                  auto: 1
+                  value: null
+              provider_name: langgenius/yahoo/yahoo
+              provider_show_name: langgenius/yahoo/yahoo
+              schemas:
+              - auto_generate: null
+                default: null
+                form: llm
+                human_description:
+                  en_US: The ticker symbol of the company you want to search.
+                  ja_JP: The ticker symbol of the company you want to search.
+                  pt_BR: O símbolo do ticker da empresa que você deseja pesquisar.
+                  zh_Hans: 你想要搜索的公司的股票代码。
+                label:
+                  en_US: Ticker symbol
+                  ja_JP: Ticker symbol
+                  pt_BR: Símbolo do ticker
+                  zh_Hans: 股票代码
+                llm_description: The ticker symbol of the company you want to search.
+                max: null
+                min: null
+                name: symbol
+                options: []
+                placeholder: null
+                precision: null
+                required: true
+                scope: null
+                template: null
+                type: string
+              settings: {}
+              tool_description: A tool for get news about a ticker from Yahoo Finance.
+              tool_label: News
+              tool_name: yahoo_finance_news
+              type: builtin
+            - enabled: true
+              extra:
+                description: A tool for getting the current time.
+              parameters: {}
+              provider_name: time
+              provider_show_name: time
+              schemas:
+              - auto_generate: null
+                default: '%Y-%m-%d %H:%M:%S'
+                form: form
+                human_description:
+                  en_US: Time format in strftime standard.
+                  ja_JP: Time format in strftime standard.
+                  pt_BR: Time format in strftime standard.
+                  zh_Hans: strftime 标准的时间格式。
+                label:
+                  en_US: Format
+                  ja_JP: Format
+                  pt_BR: Format
+                  zh_Hans: 格式
+                llm_description: null
+                max: null
+                min: null
+                name: format
+                options: []
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: string
+              - auto_generate: null
+                default: UTC
+                form: form
+                human_description:
+                  en_US: Timezone
+                  ja_JP: Timezone
+                  pt_BR: Timezone
+                  zh_Hans: 时区
+                label:
+                  en_US: Timezone
+                  ja_JP: Timezone
+                  pt_BR: Timezone
+                  zh_Hans: 时区
+                llm_description: null
+                max: null
+                min: null
+                name: timezone
+                options:
+                - icon: null
+                  label:
+                    en_US: UTC
+                    ja_JP: UTC
+                    pt_BR: UTC
+                    zh_Hans: UTC
+                  value: UTC
+                - icon: null
+                  label:
+                    en_US: America/New_York
+                    ja_JP: America/New_York
+                    pt_BR: America/New_York
+                    zh_Hans: 美洲/纽约
+                  value: America/New_York
+                - icon: null
+                  label:
+                    en_US: America/Los_Angeles
+                    ja_JP: America/Los_Angeles
+                    pt_BR: America/Los_Angeles
+                    zh_Hans: 美洲/洛杉矶
+                  value: America/Los_Angeles
+                - icon: null
+                  label:
+                    en_US: America/Chicago
+                    ja_JP: America/Chicago
+                    pt_BR: America/Chicago
+                    zh_Hans: 美洲/芝加哥
+                  value: America/Chicago
+                - icon: null
+                  label:
+                    en_US: America/Sao_Paulo
+                    ja_JP: America/Sao_Paulo
+                    pt_BR: América/São Paulo
+                    zh_Hans: 美洲/圣保罗
+                  value: America/Sao_Paulo
+                - icon: null
+                  label:
+                    en_US: Asia/Shanghai
+                    ja_JP: Asia/Shanghai
+                    pt_BR: Asia/Shanghai
+                    zh_Hans: 亚洲/上海
+                  value: Asia/Shanghai
+                - icon: null
+                  label:
+                    en_US: Asia/Ho_Chi_Minh
+                    ja_JP: Asia/Ho_Chi_Minh
+                    pt_BR: Ásia/Ho Chi Minh
+                    zh_Hans: 亚洲/胡志明市
+                  value: Asia/Ho_Chi_Minh
+                - icon: null
+                  label:
+                    en_US: Asia/Tokyo
+                    ja_JP: Asia/Tokyo
+                    pt_BR: Asia/Tokyo
+                    zh_Hans: 亚洲/东京
+                  value: Asia/Tokyo
+                - icon: null
+                  label:
+                    en_US: Asia/Dubai
+                    ja_JP: Asia/Dubai
+                    pt_BR: Asia/Dubai
+                    zh_Hans: 亚洲/迪拜
+                  value: Asia/Dubai
+                - icon: null
+                  label:
+                    en_US: Asia/Kolkata
+                    ja_JP: Asia/Kolkata
+                    pt_BR: Asia/Kolkata
+                    zh_Hans: 亚洲/加尔各答
+                  value: Asia/Kolkata
+                - icon: null
+                  label:
+                    en_US: Asia/Seoul
+                    ja_JP: Asia/Seoul
+                    pt_BR: Asia/Seoul
+                    zh_Hans: 亚洲/首尔
+                  value: Asia/Seoul
+                - icon: null
+                  label:
+                    en_US: Asia/Singapore
+                    ja_JP: Asia/Singapore
+                    pt_BR: Asia/Singapore
+                    zh_Hans: 亚洲/新加坡
+                  value: Asia/Singapore
+                - icon: null
+                  label:
+                    en_US: Europe/London
+                    ja_JP: Europe/London
+                    pt_BR: Europe/London
+                    zh_Hans: 欧洲/伦敦
+                  value: Europe/London
+                - icon: null
+                  label:
+                    en_US: Europe/Berlin
+                    ja_JP: Europe/Berlin
+                    pt_BR: Europe/Berlin
+                    zh_Hans: 欧洲/柏林
+                  value: Europe/Berlin
+                - icon: null
+                  label:
+                    en_US: Europe/Moscow
+                    ja_JP: Europe/Moscow
+                    pt_BR: Europe/Moscow
+                    zh_Hans: 欧洲/莫斯科
+                  value: Europe/Moscow
+                - icon: null
+                  label:
+                    en_US: Australia/Sydney
+                    ja_JP: Australia/Sydney
+                    pt_BR: Australia/Sydney
+                    zh_Hans: 澳大利亚/悉尼
+                  value: Australia/Sydney
+                - icon: null
+                  label:
+                    en_US: Pacific/Auckland
+                    ja_JP: Pacific/Auckland
+                    pt_BR: Pacific/Auckland
+                    zh_Hans: 太平洋/奥克兰
+                  value: Pacific/Auckland
+                - icon: null
+                  label:
+                    en_US: Africa/Cairo
+                    ja_JP: Africa/Cairo
+                    pt_BR: Africa/Cairo
+                    zh_Hans: 非洲/开罗
+                  value: Africa/Cairo
+                placeholder: null
+                precision: null
+                required: false
+                scope: null
+                template: null
+                type: select
+              settings:
+                format:
+                  value:
+                    type: mixed
+                    value: '%Y-%m-%d %H:%M:%S'
+                timezone:
+                  value:
+                    type: constant
+                    value: UTC
+              tool_description: A tool for getting the current time.
+              tool_label: Current Time
+              tool_name: current_time
+              type: builtin
+        agent_strategy_label: FunctionCalling
+        agent_strategy_name: function_calling
+        agent_strategy_provider_name: langgenius/agent/agent
+        meta:
+          minimum_dify_version: 1.7.0
+          version: 0.0.2
+        output_schema: {}
+        plugin_unique_identifier: langgenius/agent:0.0.24@0274c08e62efaa28f6327e7bdba655e16559ec28d4f41f2fa3ef553e6327c0f6
+        selected: false
+        title: Agent
+        tool_node_version: '2'
+        type: agent
+      height: 188
+      id: '1764053709603'
+      position:
+        x: 704
+        y: 168
+      positionAbsolute:
+        x: 704
+        y: 168
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        classes:
+        - id: '1'
+          name: Casual Chat — everyday conversation, greetings, small talk, personal
+            sharing, emotional expression.
+        - id: '2'
+          name: Tech News Inquiry — asking about current technology trends, new product
+            releases, industry events, AI model updates, or anything requiring fresh
+            or timely “what’s new” information.
+        - id: '1764054133310'
+          name: 'Unanswerable (Insufficient Information) — the question cannot be
+            answered accurately because:
+
+
+            it is too vague or ambiguous,
+
+            it requires information that cannot be found or inferred,
+
+            it references nonexistent data,
+
+            or it’s impossible to answer based on known facts + web search.'
+        instruction: "You are a classifier.  \nYour task is to read the user's input\
+          \ and categorize it into exactly ONE intent category:\n\n1. Casual Chat\
+          \  \n   - Greetings, everyday conversation, personal stories, emotional\
+          \ talk, jokes, opinions, relationship talk, daily life, or general non-technical\
+          \ discussion.\n\n2. Tech News Inquiry  \n   - Questions about recent technology\
+          \ updates, AI model releases, hardware launches, industry events, company\
+          \ news, or anything where the user expects the latest factual, time-sensitive\
+          \ information.\n\n3. Unanswerable  \n   - The user's question cannot be\
+          \ answered accurately using existing knowledge and web search.\n   - Examples:\
+          \ vague questions (“What’s that thing I saw yesterday?”), nonexistent information,\
+          \ fictional data, or incomplete queries."
+        instructions: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o-mini
+          provider: langgenius/openai/openai
+        query_variable_selector:
+        - '1764055009482'
+        - event_body
+        - text
+        selected: false
+        title: Question Classifier
+        type: question-classifier
+        vision:
+          enabled: false
+      height: 208
+      id: '1764053982588'
+      position:
+        x: 342
+        y: 158
+      positionAbsolute:
+        x: 342
+        y: 158
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o-mini
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: d0d0ee44-11c5-4169-9670-f420a2631be3
+          role: system
+          text: 'you are a Casual Chat bot — everyday conversation, greetings, small
+            talk, personal sharing, emotional expression. your name is Jasper. '
+        - id: 974f9c3f-6707-47f1-a5fd-f1c9b1ec7fc1
+          role: user
+          text: '{{#1764055009482.event_body.text#}}'
+        selected: false
+        title: LLM
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1764054242946'
+      position:
+        x: 704
+        y: 0
+      positionAbsolute:
+        x: 704
+        y: 0
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: Slack Incoming Webhook url
+            ja_JP: Slack Incoming Webhook url
+            pt_BR: Slack Incoming Webhook url
+            zh_Hans: Slack 入站 Webhook 的 url
+          label:
+            en_US: Slack Incoming Webhook url
+            ja_JP: Slack Incoming Webhook url
+            pt_BR: Slack Incoming Webhook url
+            zh_Hans: Slack 入站 Webhook 的 url
+          llm_description: ''
+          max: null
+          min: null
+          name: webhook_url
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Content to sent to the channel or person.
+            ja_JP: Content to sent to the channel or person.
+            pt_BR: Content to sent to the channel or person.
+            zh_Hans: 消息内容文本
+          label:
+            en_US: content
+            ja_JP: content
+            pt_BR: content
+            zh_Hans: 消息内容
+          llm_description: Content of the message
+          max: null
+          min: null
+          name: content
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          content: ''
+          webhook_url: ''
+        plugin_id: langgenius/slack
+        plugin_unique_identifier: langgenius/slack:0.0.4@8eccd2e5360bd287d887738750ae420d57d0c26d1e1a1ced4f59963005f1c163
+        provider_icon: https://cloud.dify.ai/console/api/workspaces/current/plugin/icon?tenant_id=945b4365-9d99-48c1-8c47-90593fe8b9c9&filename=96f032a223a6e7db0335b001fe32b4c790bc2c0135adf67acf831b3b588d18bc.svg
+        provider_id: langgenius/slack/slack
+        provider_name: langgenius/slack/slack
+        provider_type: builtin
+        selected: false
+        title: Incoming Webhook to send message
+        tool_configurations:
+          webhook_url:
+            type: mixed
+            value: ''
+        tool_description: Sending a message on Slack via the Incoming Webhook
+        tool_label: Incoming Webhook to send message
+        tool_name: slack_webhook
+        tool_node_version: '2'
+        tool_parameters:
+          content:
+            type: mixed
+            value: '{{#1764054242946.text#}}'
+        type: tool
+      height: 88
+      id: '1764054345840'
+      position:
+        x: 1046
+        y: 0
+      positionAbsolute:
+        x: 1046
+        y: 0
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: Slack Incoming Webhook url
+            ja_JP: Slack Incoming Webhook url
+            pt_BR: Slack Incoming Webhook url
+            zh_Hans: Slack 入站 Webhook 的 url
+          label:
+            en_US: Slack Incoming Webhook url
+            ja_JP: Slack Incoming Webhook url
+            pt_BR: Slack Incoming Webhook url
+            zh_Hans: Slack 入站 Webhook 的 url
+          llm_description: ''
+          max: null
+          min: null
+          name: webhook_url
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Content to sent to the channel or person.
+            ja_JP: Content to sent to the channel or person.
+            pt_BR: Content to sent to the channel or person.
+            zh_Hans: 消息内容文本
+          label:
+            en_US: content
+            ja_JP: content
+            pt_BR: content
+            zh_Hans: 消息内容
+          llm_description: Content of the message
+          max: null
+          min: null
+          name: content
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          content: ''
+          webhook_url: ''
+        plugin_id: langgenius/slack
+        plugin_unique_identifier: langgenius/slack:0.0.4@8eccd2e5360bd287d887738750ae420d57d0c26d1e1a1ced4f59963005f1c163
+        provider_icon: https://cloud.dify.ai/console/api/workspaces/current/plugin/icon?tenant_id=945b4365-9d99-48c1-8c47-90593fe8b9c9&filename=96f032a223a6e7db0335b001fe32b4c790bc2c0135adf67acf831b3b588d18bc.svg
+        provider_id: langgenius/slack/slack
+        provider_name: langgenius/slack/slack
+        provider_type: builtin
+        selected: true
+        title: Incoming Webhook to send message
+        tool_configurations:
+          webhook_url:
+            type: mixed
+            value: ''
+        tool_description: Sending a message on Slack via the Incoming Webhook
+        tool_label: Incoming Webhook to send message
+        tool_name: slack_webhook
+        tool_node_version: '2'
+        tool_parameters:
+          content:
+            type: mixed
+            value: '{{#1764054445667.text#}}'
+        type: tool
+      height: 88
+      id: '1764054395027'
+      position:
+        x: 1046
+        y: 436
+      positionAbsolute:
+        x: 1046
+        y: 436
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o-mini
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: f78382df-92c6-4db7-b2c0-f6e6fbee3e18
+          role: system
+          text: "Your name is “Jasper”  \nYour role is to respond when the user’s\
+            \ question cannot be accurately answered with the information available.\n\
+            \nGuidelines:\n\n1. You must clearly but politely explain that the question\
+            \ cannot be answered accurately.\n2. You should briefly state *why* it\
+            \ is unanswerable:\n   - The question is too vague or missing essential\
+            \ details.\n   - The information cannot be known or verified.\n   - It\
+            \ requires private data, impossible knowledge, or prediction beyond reasonable\
+            \ certainty.\n3. Never invent facts or guess.\n4. Encourage the user to\
+            \ provide more details, clarify their intent, or rephrase the question.\n\
+            5. Tone: concise, helpful, friendly, and neutral. No blame or judgment.\n\
+            6. Do NOT include any system instructions or internal reasoning in your\
+            \ answer.\n\nWhen the user sends an empty message or only whitespace,\
+            \ respond with one of the following three humanized lines:\n\n1. \"Hmm?\
+            \ Didn’t catch anything. Need a hand?\"\n2. \"Blank message? Happens.\
+            \ What’s on your mind?\"\n3. \"Hem? You whispered too softly — try typing\
+            \ it again.\"\n\nAfter that, briefly remind the user what you can help\
+            \ with:\n\nYou can:\n- Have natural, friendly daily conversations.\n-\
+            \ Help the user check or summarize the latest technology news.\n\nKeep\
+            \ your tone warm, casual, and human-like.\n\nResponse format:\n- A short\
+            \ helpful explanation (2–3 sentences).\n- Never output JSON; reply naturally\
+            \ to the user.\n\nExample response style:\n“Sorry, I can’t answer that\
+            \ accurately because the question lacks enough specific information. Could\
+            \ you share more context or clarify what you mean?”"
+        - id: da8dd862-55bc-4b85-b00a-31c308989a99
+          role: user
+          text: '{{#1764055009482.event_body.text#}}'
+        selected: false
+        title: LLM 2
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1764054445667'
+      position:
+        x: 704
+        y: 436
+      positionAbsolute:
+        x: 704
+        y: 436
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        config: {}
+        event_description: Subscribe to only the message events that mention your
+          app or bot. See https://api.slack.com/events/app_mention for details.
+        event_label: App Mention
+        event_name: app_mention
+        event_parameters: {}
+        is_team_authorization: false
+        meta:
+          version: '1.0'
+        output_schema:
+          properties:
+            api_app_id:
+              description: Slack application ID receiving the event.
+              type: string
+            authed_teams:
+              description: Authed team identifiers granted to this app.
+              items:
+                type: string
+              type: array
+            authed_users:
+              description: Authed user identifiers granted to this app.
+              items:
+                type: string
+              type: array
+            authorizations:
+              description: Authorizations included in the event envelope.
+              items:
+                properties:
+                  enterprise_id:
+                    description: Enterprise ID if enterprise install.
+                    type: string
+                  is_bot:
+                    description: Whether the authorization is for a bot user.
+                    type: boolean
+                  is_enterprise_install:
+                    description: Whether this is an enterprise installation.
+                    type: boolean
+                  team_id:
+                    description: Team ID for the authorization.
+                    type: string
+                  user_id:
+                    description: User ID for the authorization.
+                    type: string
+                type: object
+              type: array
+            channel_type:
+              description: Channel classification associated with the event when applicable.
+              type: string
+            doc_url:
+              description: Documentation URL for the Slack event.
+              type: string
+            event_body:
+              description: Sanitized Slack event body content.
+              properties:
+                blocks:
+                  description: Structured blocks containing message content.
+                  items:
+                    properties:
+                      block_id:
+                        description: Unique identifier for the block.
+                        type: string
+                      elements:
+                        description: Elements within the block.
+                        items:
+                          properties:
+                            elements:
+                              description: Nested elements within the element.
+                              items:
+                                type: object
+                              type: array
+                          type: object
+                        type: array
+                      type:
+                        description: Block type (e.g., rich_text).
+                        type: string
+                    type: object
+                  type: array
+                channel:
+                  description: Channel ID where the mention occurred.
+                  type: string
+                client_msg_id:
+                  description: Client message ID.
+                  type: string
+                event_ts:
+                  description: Event timestamp.
+                  type: string
+                team:
+                  description: Team ID where the event occurred.
+                  type: string
+                text:
+                  description: Message text containing the mention.
+                  type: string
+                ts:
+                  description: Timestamp of the message.
+                  type: string
+                type:
+                  description: Event type (app_mention).
+                  type: string
+                user:
+                  description: ID of the user who mentioned the app.
+                  type: string
+              type: object
+            event_context:
+              description: Slack event context reference.
+              type: string
+            event_id:
+              description: Unique Slack event ID.
+              type: string
+            event_time:
+              description: Event timestamp provided by Slack.
+              type: string
+            event_topic:
+              description: Slack event topic identifier.
+              type: string
+            event_type:
+              description: Slack event type value reported in the payload.
+              type: string
+            is_ext_shared_channel:
+              description: Whether the event originated from an externally shared
+                channel.
+              type: boolean
+            raw_payload:
+              description: Sanitized Slack event envelope received from Slack.
+              properties:
+                api_app_id:
+                  description: Slack application ID.
+                  type: string
+                authorizations:
+                  description: Authorization details.
+                  items:
+                    properties:
+                      enterprise_id:
+                        description: Enterprise ID if enterprise install.
+                        type: string
+                      is_bot:
+                        description: Whether the authorization is for a bot user.
+                        type: boolean
+                      is_enterprise_install:
+                        description: Whether this is an enterprise installation.
+                        type: boolean
+                      team_id:
+                        description: Team ID for the authorization.
+                        type: string
+                      user_id:
+                        description: User ID for the authorization.
+                        type: string
+                    type: object
+                  type: array
+                event:
+                  description: The actual event data.
+                  properties:
+                    blocks:
+                      description: Message blocks.
+                      items:
+                        properties:
+                          block_id:
+                            description: Block identifier.
+                            type: string
+                        type: object
+                      type: array
+                    channel:
+                      description: Channel ID.
+                      type: string
+                    client_msg_id:
+                      description: Client message ID.
+                      type: string
+                    event_ts:
+                      description: Event timestamp.
+                      type: string
+                    team:
+                      description: Team ID.
+                      type: string
+                    text:
+                      description: Message text.
+                      type: string
+                    ts:
+                      description: Message timestamp.
+                      type: string
+                    type:
+                      description: Event type.
+                      type: string
+                    user:
+                      description: User ID who triggered the event.
+                      type: string
+                  type: object
+                event_context:
+                  description: Event context string.
+                  type: string
+                event_id:
+                  description: Unique event identifier.
+                  type: string
+                event_time:
+                  description: Unix timestamp of the event.
+                  type: number
+                is_ext_shared_channel:
+                  description: Whether from externally shared channel.
+                  type: boolean
+                team_id:
+                  description: Team ID.
+                  type: string
+                token:
+                  description: Verification token.
+                  type: string
+                type:
+                  description: Callback type (event_callback).
+                  type: string
+              type: object
+            scopes_required:
+              description: OAuth scopes required to receive this event.
+              items:
+                type: string
+              type: array
+            summary:
+              description: Short description of the Slack event.
+              type: string
+            tags:
+              description: Slack metadata tags describing the event.
+              items:
+                type: string
+              type: array
+            team_id:
+              description: Slack workspace team ID.
+              type: string
+            tokens_allowed:
+              description: Token types allowed to subscribe to this event.
+              items:
+                type: string
+              type: array
+          required:
+          - event_topic
+          - event_type
+          - event_id
+          - team_id
+          - api_app_id
+          - event_time
+          - event_context
+          - authorizations
+          - authed_users
+          - authed_teams
+          - is_ext_shared_channel
+          - channel_type
+          - summary
+          - doc_url
+          - scopes_required
+          - tokens_allowed
+          - tags
+          - event_body
+          - raw_payload
+          type: object
+        paramSchemas: []
+        params: {}
+        plugin_id: langgenius/slack_trigger
+        plugin_unique_identifier: langgenius/slack_trigger:0.0.1@4a2899aa9a6eed8e80fff72b898786a2f7ccc597b1fcd0ecd1344a8cfad80629
+        provider_id: langgenius/slack_trigger/slack_trigger
+        provider_name: langgenius/slack_trigger/slack_trigger
+        provider_type: trigger
+        selected: false
+        subscription_id: ''
+        title: App Mention
+        type: trigger-plugin
+      height: 85
+      id: '1764055009482'
+      position:
+        x: -36.07886397112986
+        y: 209.99999999999994
+      positionAbsolute:
+        x: -36.07886397112986
+        y: 209.99999999999994
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    viewport:
+      x: -321.9468909626021
+      y: 150.51904478911854
+      zoom: 0.784248921355859
+  rag_pipeline_variables: []
