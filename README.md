@@ -2,7 +2,7 @@
 
 分享高质量的 Dify 工作流，通过一个 DSL 文件即可导入使用。
 
-当前仓库收录 **74** 个可导入 DSL，主要来自开源社区高星项目与官方 AWS 示例。建议使用 **Dify 0.13.0+** 导入；含 Agent / MCP 节点的流程请尽量用最新版 Dify。
+当前仓库收录 **75** 个可导入 DSL，主要来自开源社区高星项目与官方 AWS 示例。建议使用 **Dify 0.13.0+** 导入；含 Agent / MCP 节点的流程请尽量用最新版 Dify。
 
 导入方式：Dify 控制台 → 创建应用 → 导入 DSL 文件。导入后按需替换模型、工具授权和 API Key。
 
@@ -134,6 +134,7 @@ DeepSeek R1 和 Gemini 2.0 的结合，实现更好的思考过程和更优质�
 
 | 文件 | 说明 |
 | --- | --- |
+| [Arcmira YouTube transcript search](./DSLs/arcmira-transcript-search.yml) | 按主题和发布日期搜索 YouTube 字幕片段，返回时间戳、来源链接及覆盖范围说明。需安装 [Arcmira 插件](https://marketplace.dify.ai/plugin/arcmira/arcmira)并配置自己的 API Key；无需大语言模型。[使用指南](https://github.com/arcmira/integrations/tree/master/examples/dify-transcript-search)。提供免费套餐，用量受账户限制。 |
 | `Jina Reader Jinja.yml` | 基于搜索 + Jina 读取网页的问答流程。 |
 | `图文知识库.yml` | 知识库检索后输出图配文效果的示例。 |
 | `basic_rag_sample.yml` | 基础 RAG 工作流模板。 |
@@ -205,6 +206,7 @@ DeepSeek R1 和 Gemini 2.0 的结合，实现更好的思考过程和更优质�
 
 | 来源 | 许可证 | 说明 |
 | --- | --- | --- |
+| [Arcmira](https://arcmira.com) · [公开工作流](https://github.com/arcmira/integrations/tree/master/examples/dify-transcript-search) | [Apache-2.0](./DSLs/arcmira-transcript-search.LICENSE) | YouTube 字幕片段搜索，保留时间戳和来源 |
 | [svcvit/Awesome-Dify-Workflow](https://github.com/svcvit/Awesome-Dify-Workflow) | MIT | 社区最全的 Dify DSL 合集之一 |
 | [aws-samples/dify-aws-tool](https://github.com/aws-samples/dify-aws-tool) | MIT-0 | AWS 官方示例工作流 |
 | [ghostviper/dify-workflow](https://github.com/ghostviper/dify-workflow) | Apache-2.0 | 标题党 / 文章仿写等创作流 |
